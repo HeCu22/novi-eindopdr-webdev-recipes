@@ -1,0 +1,254 @@
+@import "https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Roboto&family=Rock+Salt&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 16px;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+body {
+  background-color: #ffebcd;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  font-family: Roboto Condensed, Arial, sans-serif;
+  display: flex;
+  position: relative;
+  top: 70px;
+}
+
+ul {
+  margin-left: 10px;
+  list-style: none;
+}
+
+selcontainer {
+  max-width: 900px;
+  text-align: left;
+  margin-left: 50px;
+  padding: 50px;
+}
+
+selstyle {
+  justify-content: center;
+  align-items: center;
+}
+
+descr1, descr2, descr3 {
+  width: 200px;
+  justify-content: center;
+}
+
+listcontainer {
+  max-width: 900px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 50px;
+}
+
+head-section {
+  max-width: 900px;
+  text-align: left;
+  margin: 10px;
+}
+
+.row {
+  flex-direction: row;
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+  display: flex;
+}
+
+.blankline {
+  margin-top: 5px;
+}
+
+.top {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  top: 30px;
+}
+
+.navbar {
+  width: 700px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+  position: fixed;
+  top: 0;
+}
+
+.icon-img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #add8e6;
+  border-radius: 10%;
+  margin: 20px;
+}
+
+.icon-img32 {
+  width: 50px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.blankline {
+  padding-bottom: 5px;
+}
+
+.font-p {
+  margin: 5px;
+  padding: 5px;
+}
+
+.img-p {
+  width: 50px;
+  border-radius: 10%;
+}
+
+.recipe-line {
+  flex-direction: row;
+  display: flex;
+}
+
+#head-img {
+  width: 500px;
+  border: none;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#fill-img {
+  width: 300px;
+  border: none;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#on-submit, #on-submit-cuisine {
+  margin-left: 10px;
+}
+
+#author, #tags {
+  width: 150px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#title {
+  width: 150px;
+  margin-left: 20px;
+}
+
+#numberMax {
+  width: 50px;
+  margin-left: 10px;
+}
+
+#author, #tags, #title, #numberMax {
+  color: #639;
+}
+
+#cuisine-list {
+  text-align: left;
+  height: 200px;
+  flex-wrap: wrap;
+  padding: 2px;
+}
+
+#buttonStart {
+  width: 90px;
+  height: 30px;
+  background-color: orange;
+  border: 5px solid #ff8c00;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: medium;
+}
+
+#buttonNext {
+  color: #fff;
+  border-: solid 5px orangered;
+  width: 32px;
+  height: 32px;
+  background-color: #ff8c00;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: medium;
+  position: fixed;
+  top: 800px;
+  left: 400px;
+}
+
+#button-style1, #button-style2, #button-style3 {
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  background-color: #ff8c00;
+  border: 5px solid #ff4500;
+  border-left: none;
+  border-radius: 10px;
+  margin: 50px;
+  font-size: medium;
+  position: relative;
+}
+
+#button-style1:hover:after, #button-style2:hover:after, #button-style3:hover:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 15px solid #0000;
+  border-bottom: 15px solid #0000;
+  border-left: 20px solid #ff4500;
+  display: block;
+  position: absolute;
+  top: -4px;
+  right: -20px;
+}
+
+#recipe-list {
+}
+
+#recipe-list img {
+  width: 20%;
+}
+
+#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr {
+  max-width: 700px;
+  padding: 5px;
+  font-size: small;
+  display: block;
+}
+
+#mess-text {
+  color: #0000cd;
+}
+
+@media screen and (min-width: 768px) {
+  #buttonNext {
+    top: 800px;
+    left: 700px;
+  }
+}
+
+/*# sourceMappingURL=index.4d663569.css.map */

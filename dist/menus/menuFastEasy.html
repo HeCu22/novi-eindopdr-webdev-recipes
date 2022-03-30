@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/index.4d663569.css">
+    <title>Creative new or special Cuisine recipes</title>
+</head>
+<body>
+<head-section class="top">
+    <nav class="navbar">
+        <a href="/index.html" target="_self"> <img class="icon-img32" src="/icon-menu.c482da66.png" alt="Back"> </a>
+        <img id="head-img" src="/logo%20img%20background.f87983e3.png" alt="logo-vegetables">
+        <a href="/menus/recipeDetail.html" target="_self"> <img class="icon-img32" src="/icon-search.676f7a10.png" alt="find recipe"> </a>
+    </nav>
+    <h1>Recipes for home-style cookin'</h1>
+
+</head-section>
+
+<selcontainer class="column">
+
+    <selstyle class="row">
+        <img class="icon-img" src="/quick-meal.4621fb1f.jpg" alt="quick-meal">
+        <form id="on-submit-fast" class="column">
+            <menuoptions class="column, sel-cui">
+                <p class="blankline"></p>
+                <h2>Select one of next for menu types!</h2>
+                <h4>Menutype:</h4>
+                <div id="menu-type-list" class="column">
+                    [menu-type-list];
+                </div>
+            </menuoptions>
+              <timeready class="row">
+                <h4>Max ready time:</h4>
+                <label for="time-ready">
+                    <input type="number" id="time-ready" name="time-ready" value="30&quot;/">
+                </label>
+
+            </timeready>
+           <p class="blankline"></p>
+            <sel-number class="row">
+                <h4>Maximum number of recipes to present:</h4>
+                <label for="numberMax">
+                    <input type="number" id="numberMax" value="15" name="numberMax">
+                </label>
+            </sel-number>
+
+            <button id="buttonStart"> Start</button>
+        </form>
+        <div id="button-place"></div>
+    </selstyle>
+</selcontainer>
+<listcontainer class="column">
+    <div id="message-text">[message-text]</div>
+    <ul id="recipe-list">[doc-recipe-list]</ul>
+</listcontainer>
+<script src="/index.4d6bcbeb.js" defer=""></script>
+<script src="/menus/menuFastEasy.888b927a.js" defer=""></script>
+</body>
+</html>
