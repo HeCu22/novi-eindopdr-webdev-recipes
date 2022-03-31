@@ -519,7 +519,6 @@ var _fetchFastRecipes = require("./fetchFastRecipes");
 var _fetchFastRecipesDefault = parcelHelpers.interopDefault(_fetchFastRecipes);
 var _createMenuTypeList = require("./createMenuTypeList");
 var _createMenuTypeListDefault = parcelHelpers.interopDefault(_createMenuTypeList);
-console.log('menu');
 //array with cuisines;
 const menuTypes = [
     "main course",
@@ -537,7 +536,6 @@ const menuTypes = [
     "snack",
     "drink"
 ];
-console.log('menutypes', menuTypes);
 _createMenuTypeListDefault.default(menuTypes);
 // reference save of user input
 let inputtimeR = document.getElementById('time-ready');
@@ -559,9 +557,10 @@ formSubmit.addEventListener("submit", (e)=>{
     // put input of menutypes marked in string
     handleCheckbox();
     // keep input search field value in message text
+    if (inputtimeR.value) ;
+    else inputtimeR.value = 45;
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
         ${inputMenuTypeString}`;
-    console.log('input', inputSearching);
     if (inputSearching > "") _fetchFastRecipesDefault.default(inputtimeR.value, inputNumber.value, inputMenuTypeString).then();
 });
 function handleCheckbox() {
@@ -592,11 +591,9 @@ var _createListLinesDefault = parcelHelpers.interopDefault(_createListLines);
 // intialize page message and number of lines on each page
 const messageText = document.getElementById("message-text");
 messageText.textContent = "";
+// set the number of lines on one page as constant
 const numberOfLines = 5;
 async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
-    console.log('input', inputtimeR);
-    if (inputNumber === 0) inputNumber = 10;
-    if (inputtimeR === 0) inputtimeR = 45;
     try {
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
@@ -612,12 +609,10 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
         });
         const foundRecipes = response.data.results;
         const recipesLength = foundRecipes.length;
-        console.log(foundRecipes);
         // create a list with maximum number of lines that uses array of all found
         let firstLine = 0;
         let lastLine = numberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-        console.log('array', recipesLength, foundRecipes);
         _createListLinesDefault.default(arrayDisplay);
         // reset the userInput
         // listen to button id="buttonNext" to display next page
@@ -629,13 +624,12 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
                 firstLine += numberOfLines;
                 lastLine += numberOfLines;
                 arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-                console.log('fetchMenuR', arrayDisplay);
                 _createListLinesDefault.default(arrayDisplay);
             // reset the userInput
             } else {
-                console.log('stop');
                 let firstLine = 0;
                 let lastLine = numberOfLines;
+                messageText.textContent = `For this input no data found.`;
             }
         });
     } catch (e) {
@@ -664,28 +658,45 @@ function createListLines(recipes) {
     const inputTags = document.getElementById('tags');
     const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
+    const inputIngredients = document.getElementById('ingredients');
     // one or more recipe lines are possible
     recipes.map((recipe)=>{
         /* ------------------------------------ */ //   use create element method to fill the DOM tree
         /* ------------------------------------ */ // create container element for recipe line in div
-        let recipeDiv = document.createElement('div');
-        recipeDiv.setAttribute('class', 'recipe-line');
+        let recipeDivLine = document.createElement('div');
+        recipeDivLine.setAttribute('class', 'recipe-line');
         // Create IMG element
         let recipeImg = document.createElement('img');
         recipeImg.setAttribute('class', 'img-p');
         recipeImg.setAttribute('src', `${recipe.image}`);
+        // create container element for recipe line in div
+        let recipeDivText = document.createElement('div');
+        recipeDivText.setAttribute('class', 'column');
         // Create het titel-element
         const recipeTitle = document.createElement('p');
         //  fill titel-element
         recipeTitle.textContent = recipe.title;
         recipeTitle.setAttribute('class', 'font-p');
+        // Create extra-element to show ingredients when searching on ingredients
+        const recipeExtra = document.createElement('p');
+        if (inputIngredients) {
+            //  fill extra elemenent
+            let extra = "Ingredients:";
+            recipe.usedIngredients.map((ingredient)=>{
+                extra += ingredient.name;
+            });
+            recipeExtra.textContent = extra;
+            recipeExtra.setAttribute('class', 'font-p');
+        }
         const recipeId = document.createElement("p");
         recipeId.textContent = recipe.id;
         // put elements in container div
-        recipeDiv.appendChild(recipeImg);
-        recipeDiv.appendChild(recipeTitle);
+        recipeDivLine.appendChild(recipeImg);
+        recipeDivText.appendChild(recipeTitle);
+        recipeDivText.appendChild(recipeExtra);
+        recipeDivLine.appendChild(recipeDivText);
         // put elements in container List
-        recipeList.appendChild(recipeDiv);
+        recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
     });
 }

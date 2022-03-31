@@ -515,11 +515,8 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"bBbOH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-const listItems = [];
-let inputId = "639606";
 let tempImg = "";
 async function fetchDetails($inputId) {
     // let idRecipex = Number(inputId);
@@ -573,7 +570,16 @@ async function fetchDetails($inputId) {
         console.error(e);
     }
 }
-exports.default = fetchDetails();
+// reference save of user input
+const inputId = document.getElementById('idRec');
+const formSubmit = document.getElementById('on-submit-detail');
+const button = document.getElementById("buttonStart");
+// event listner user input
+formSubmit.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    console.log("ik ben hier");
+    if (inputId.value > "") fetchDetails(inputId.value);
+});
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');

@@ -8,8 +8,8 @@ messageText.textContent = "";
 const numberOfLines = 5;
 
 // function to fetch data
-async function fetchCuiRecipes(inputAuthor, inputTag, inputTitle, inputNumber , inputCuisine) {
-    console.log(inputNumber);
+async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber , inputCuisine) {
+
     try {
 
         //  receive the fetched data in response
@@ -19,7 +19,7 @@ async function fetchCuiRecipes(inputAuthor, inputTag, inputTitle, inputNumber , 
                 apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 cuisine: inputCuisine,
                 author: inputAuthor,
-                tags: inputTag,
+                tags: inputTags,
                 titleMatch: inputTitle,
                 number: inputNumber
             },
@@ -37,7 +37,7 @@ async function fetchCuiRecipes(inputAuthor, inputTag, inputTitle, inputNumber , 
         let firstLine = 0;
         let lastLine = numberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-        console.log('array', recipesLength, foundRecipes);
+
         createListLines(arrayDisplay);
         // reset the userInput
         inputAuthor.value = '';
@@ -57,7 +57,6 @@ async function fetchCuiRecipes(inputAuthor, inputTag, inputTitle, inputNumber , 
                     lastLine += numberOfLines;
                     arrayDisplay = foundRecipes.slice(firstLine, lastLine);
 
-                    console.log('fetchCuiR', arrayDisplay);
                     createListLines(arrayDisplay);
                     // reset the userInput
                     inputAuthor.value = '';
@@ -67,7 +66,6 @@ async function fetchCuiRecipes(inputAuthor, inputTag, inputTitle, inputNumber , 
 
 
                 } else {
-                    console.log('stop');
                     let firstLine = 0;
                     let lastLine = numberOfLines;
                 }

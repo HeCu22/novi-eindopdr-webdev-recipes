@@ -62,10 +62,16 @@ listcontainer {
     justify-content: center;
     align-items: flex-start;
 }
+
 head-section {
     max-width: 900px;
     margin: 10px;
     text-align: left;
+}
+
+::placeholder {
+    font-weight: lighter;
+    color: palevioletred;
 }
 
 /*--------------------------*/
@@ -135,11 +141,11 @@ head-section {
     padding: 5px;
 
 }
+
 .img-p {
     width: 50px;
     border-radius: 10%;
 }
-
 
 
 .recipe-line {
@@ -147,6 +153,7 @@ head-section {
     flex-direction: row
 
 }
+
 /*-----recipe line items */
 
 #head-img {
@@ -180,6 +187,7 @@ head-section {
     width: 150px;
     margin-left: 20px;
 }
+
 #numberMax {
     width: 50px;
     margin-left: 10px;
@@ -190,9 +198,9 @@ head-section {
 }
 
 
-#cuisine-list {
+#cuisine-list, #menu-type-list {
     text-align: left;
-    height: 200px;
+    height:150px;
     flex-wrap: wrap;
     padding: 2px;
 
@@ -235,7 +243,7 @@ head-section {
     position: relative;
 }
 
-#button-style1:hover::after, #button-style2:hover::after, #button-style3:hover::after  {
+#button-style1:hover::after, #button-style2:hover::after, #button-style3:hover::after {
     position: absolute;
     content: "";
     display: block;
@@ -263,6 +271,18 @@ head-section {
     padding: 5px;
 
 }
+
+label {
+    font-size: smaller;
+}
+#ingredients {
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+
+
 
 #mess-text {
     color: mediumblue;

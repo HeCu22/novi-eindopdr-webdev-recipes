@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-const listItems = [];
-
-let inputId = "639606";
 let tempImg = "";
 
 async function fetchDetails($inputId) {
@@ -73,7 +70,23 @@ async function fetchDetails($inputId) {
     }
 }
 
+// reference save of user input
+const inputId = document.getElementById('idRec');
+const formSubmit = document.getElementById('on-submit-detail');
+const button = document.getElementById("buttonStart");
+
+
+// event listner user input
+formSubmit.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("ik ben hier");
+
+    if (inputId.value > "") {
+
+        fetchDetails(inputId.value)
+    }
+})
 
 
 
-export default fetchDetails();
+

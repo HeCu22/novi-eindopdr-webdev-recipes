@@ -36,7 +36,7 @@ function createCuisineList(cuisines) {
             // put elements in container label
             cuisineList.appendChild(cuisineLabel);
         }
-        console.log(cuisineList);
+
         // userInputfield.value = "";
 
 }
