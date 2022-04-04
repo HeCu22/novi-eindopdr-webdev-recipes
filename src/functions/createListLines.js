@@ -1,4 +1,4 @@
-function createListLines(recipes,) {
+function createListLines(recipes) {
 
     const recipeList = document.getElementById('recipe-list');
 
@@ -24,13 +24,44 @@ function createListLines(recipes,) {
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
 
+    let selRec = "selRec-0";
+    let i = 0;
+
+    let recipeButton = document.createElement('button');
+    recipeButton.setAttribute('id', 'buttonDetail');
+    recipeButton.setAttribute('type', 'submit');
+    recipeButton.setAttribute('form', 'recipe-list');
+    recipeButton.textContent = "Details";
+
 
     // one or more recipe lines are possible
-    recipes.map((recipe) => {
+    recipes.map((recipe, number) => {
 
         /* ------------------------------------ */
         //   use create element method to fill the DOM tree
         /* ------------------------------------ */
+        i = number;
+
+
+        let recipeLabel = document.createElement('label');
+        selRec = `selRec${i}`;
+
+        recipeLabel.setAttribute("for", selRec);
+
+        // create container element for recipe line in input
+        let recipeInput = document.createElement('input');
+        recipeInput.setAttribute("id", selRec);
+        recipeInput.setAttribute("type", "radio");
+        recipeInput.setAttribute("name", "select");
+        recipeInput.setAttribute("value", recipe.id);
+
+
+        /* ------------------------------------ */
+        //   use create element method to fill the DOM tree
+        /* ------------------------------------ */
+        // create container element for recipe line in label
+        // Create IMG element
+
 
         // create container element for recipe line in div
         let recipeDivLine = document.createElement('div');
@@ -61,11 +92,10 @@ function createListLines(recipes,) {
             });
             recipeExtra.textContent = extra;
             recipeExtra.setAttribute('class', 'font-p');
-        } else {
         }
-        ;
 
         const recipeId = document.createElement("p");
+
         recipeId.textContent = recipe.id;
 
         // put elements in container div
@@ -73,13 +103,20 @@ function createListLines(recipes,) {
         recipeDivText.appendChild(recipeTitle);
         recipeDivText.appendChild(recipeExtra);
         recipeDivLine.appendChild(recipeDivText);
+        recipeLabel.appendChild(recipeInput);
+
+
         // put elements in container List
+        recipeList.appendChild(recipeLabel)
         recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
 
 
+        i++
 
     });
+
+    recipeList.appendChild(recipeButton);
 
 
 }

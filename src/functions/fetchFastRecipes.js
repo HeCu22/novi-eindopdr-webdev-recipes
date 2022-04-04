@@ -62,6 +62,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
             }
         )
 
+
+
     } catch
         (e) {
         console.error(e);

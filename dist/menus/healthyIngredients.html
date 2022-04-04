@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/menus/recipeDetail.58ef934f.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/index.4d663569.css">
     <title>Creative new or special Cuisine recipes</title>
@@ -26,7 +26,7 @@
     <selstyle class="row">
         <img class="icon-img" src="/fridge.8534621f.jpg" alt="fridge filled with ingredients">
         <img class="icon-img" src="/healthy.b16ca0d8.jpg" alt="healthy ingredients">
-        <form id="on-submit-fast" class="column">
+        <form id="on-submit-search" class="column">
 
             <ingredients class="row">
 
@@ -50,16 +50,22 @@
                 </label>
             </sel-number>
 
-            <button id="buttonStart"> Start</button>
+            <button type="submit" form="on-submit-search" id="buttonStart">Start</button>
         </form>
         <div id="button-place"></div>
     </selstyle>
 </selcontainer>
 <listcontainer class="column">
     <div id="message-text">[message-text]</div>
-    <ul id="recipe-list">[doc-recipe-list]</ul>
+    <form id="recipe-list" class="column">
+<!--    <ul id="recipe-list">[doc-recipe-list]</ul>-->
+        </form>
 </listcontainer>
-<script src="/index.4d6bcbeb.js" defer=""></script>
+<div id="message">[message-text]</div>
+<detailcontainer class="column">
+    <ul id="detail-list">[doc-recipe-list]</ul>
+</detailcontainer>
+<script src="/menus/healthyIngredients.4d6bcbeb.js" defer=""></script>
 <script src="/menus/healthyIngredients.b2524a20.js" defer=""></script>
 
 </body>

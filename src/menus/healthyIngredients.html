@@ -27,7 +27,7 @@
     <selstyle class="row">
         <img class="icon-img" src="../assets/fridge.jpg" alt="fridge filled with ingredients"/>
         <img class="icon-img" src="../assets/healthy.jpg" alt="healthy ingredients"/>
-        <form id="on-submit-fast" class="column">
+        <form id="on-submit-search" class="column">
 
             <ingredients class="row">
 
@@ -51,15 +51,21 @@
                 </label>
             </sel-number>
 
-            <button id="buttonStart"> Start</button>
+            <button type="submit" form="on-submit-search" id="buttonStart">Start</button>
         </form>
         <div id="button-place"></div>
     </selstyle>
 </selcontainer>
 <listcontainer class="column">
     <div id="message-text">[message-text]</div>
-    <ul id="recipe-list">[doc-recipe-list]</ul>
+    <form id="recipe-list" class="column">
+<!--    <ul id="recipe-list">[doc-recipe-list]</ul>-->
+        </form>
 </listcontainer>
+<div id="message">[message-text]</div>
+<detailcontainer class="column">
+    <ul id="detail-list">[doc-recipe-list]</ul>
+</detailcontainer>
 <script src="../main.js" type="module"></script>
 <script src="../functions/inputIngredients.js" type="module"></script>
 

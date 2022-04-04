@@ -515,13 +515,12 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"bBbOH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 let tempImg = "";
-async function fetchDetails($inputId) {
-    // let idRecipex = Number(inputId);
-    console.log(inputId);
-    // inputId = 639606;
+async function fetchDetails(inputId) {
+    console.log('input2', inputId);
     try {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
@@ -535,51 +534,61 @@ async function fetchDetails($inputId) {
         });
         // make array from object detailsRecipe to pass it to createListLines
         console.log('listItems', detailsRecipe.data);
-        const getDescription = document.getElementById("rec-description");
-        const getImg = document.getElementById("rec-img");
-        const getTime = document.getElementById('rec-time');
-        const getInstr = document.getElementById('rec-instr');
-        const getServ = document.getElementById('rec-serv');
-        const getIngr = document.getElementById('rec-ingr');
+        // get detail information from data
+        const detailList = document.getElementById("detail-list");
         // create container element for recipe line in div
         let recDiv = document.createElement('div');
-        recDiv.setAttribute('class', 'rec-item');
+        recDiv.setAttribute('id', 'rec-item');
+        recDiv.setAttribute('class', 'row');
+        // create p element with span for img
+        let recP = document.createElement('p');
+        let recSpan = document.createElement('span');
+        recP.textContent = "Description:";
+        recSpan.setAttribute('id', 'rec-description');
         //                 Create IMG element
         let recImg = document.createElement('img');
+        recImg.setAttribute('id', 'rec-img');
         recImg.setAttribute('class', 'img-det');
-        console.log('append', inputId);
         tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
-        console.log('temp', tempImg);
         recImg.setAttribute('src', `${tempImg}`);
-        // put elements in container div
-        recDiv.appendChild(recImg);
-        // put elements in container List
-        getImg.appendChild(recDiv);
-        getInstr.innerHTML = detailsRecipe.data.instructions;
-        getTime.textContent = detailsRecipe.data.readyInMinutes;
-        getServ.textContent = detailsRecipe.data.servings;
-        getDescription.textContent = detailsRecipe.data.title;
+        // put elements in container p
+        recP.appendChild(recSpan);
+        recP.appendChild(recImg);
+        recDiv.appendChild(recP);
+        // create p element with span for cooking-time
+        let recP2 = document.createElement('p');
+        recP2.textContent = "Cooking time:";
+        let recSpan2 = document.createElement('span');
+        recSpan2.setAttribute('id', 'rec-time');
+        recSpan2.textContent = detailsRecipe.data.readyInMinutes;
+        // recSpan2.textContent = detailsRecipe.data.servings;
+        // put elements in container p
+        recP2.appendChild(recSpan2);
+        recDiv.appendChild(recP2);
+        // create p element with span for instructions
+        let recP3 = document.createElement('p');
+        recP3.textContent = "Instructions:";
+        let recSpan3 = document.createElement('span');
+        recSpan3.innerHTML = detailsRecipe.data.instructions;
+        // put elements in container p
+        recP3.appendChild(recSpan3);
+        recDiv.appendChild(recP3);
+        // create p element with span for ingredients
+        let recP4 = document.createElement('p');
+        recP4.textContent = "Instructions:";
+        let recSpan4 = document.createElement('span');
         let instrucT = detailsRecipe.data.extendedIngredients[0].aisle;
         for(let i = 1; i < detailsRecipe.data.extendedIngredients.length; i++)instrucT += ', ' + detailsRecipe.data.extendedIngredients[i].aisle;
-        getIngr.textContent = instrucT;
-        selRecipe0.value = "";
-        selRecipe1.value = "";
-        selRecipe2.value = "";
-        selRecipe3.value = "";
+        recSpan4.textContent = instrucT;
+        // put elements in container p
+        recP4.appendChild(recSpan4);
+        recDiv.appendChild(recP4);
+        detailList.appendChild(recDiv);
     } catch (e) {
         console.error(e);
     }
 }
-// reference save of user input
-const inputId = document.getElementById('idRec');
-const formSubmit = document.getElementById('on-submit-detail');
-const button = document.getElementById("buttonStart");
-// event listner user input
-formSubmit.addEventListener("submit", (e)=>{
-    e.preventDefault();
-    console.log("ik ben hier");
-    if (inputId.value > "") fetchDetails(inputId.value);
-});
+exports.default = fetchDetails;
 
 },{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');

@@ -216,6 +216,19 @@ head-section {
     margin: 5px;
 }
 
+#buttonDetail {
+    background-color: orange;
+    font-size: medium;
+    border: solid 5px darkorange;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    margin: 5px;
+    position: fixed;
+    top: 700px;
+    left: 500px;
+}
+
 #buttonNext {
     background-color: darkorange;
     color: white;
@@ -227,7 +240,7 @@ head-section {
     margin: 5px;
     position: fixed;
     top: 800px;
-    left: 400px;
+    left: 500px;
 }
 
 #button-style1, #button-style2, #button-style3 {

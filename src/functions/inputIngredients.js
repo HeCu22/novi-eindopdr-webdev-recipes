@@ -1,12 +1,13 @@
 import fetchRecipeByIngredients from './fetchRecipeByIngredients';
+import fetchFastRecipes from "./fetchFastRecipes";
 
 
 // reference save of user input
 let inputIngredients = document.getElementById('ingredients');
 let inputNumber = document.getElementById("numberMax");
 
-const formSubmit = document.getElementById('on-submit-fast');
-const button = document.getElementById("buttonStart");
+const formSubmit = document.getElementById('on-submit-search');
+const buttonStart = document.getElementById("buttonStart");
 
 // buttonDisplay for nextPage display
 const buttonDisp = document.getElementById("button-place");
@@ -18,8 +19,10 @@ buttonDisp.appendChild(buttonTag);
 // initialize input search field value in message text.
 let inputSearching = "";
 // event listner user input
+
 formSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
+    console.log('buttonStart',buttonStart);
 
     // keep input search field value in message text
     inputSearching = `${inputIngredients.value} ${inputNumber.value}`;

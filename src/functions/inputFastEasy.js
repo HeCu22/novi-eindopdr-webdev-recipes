@@ -42,6 +42,7 @@ formSubmit.addEventListener("submit", (e) => {
 })
 
 
+
 function handleCheckbox() {
 
     // If the checkbox is checked, display the output text

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import createListLines from "./createListLines";
+import fetchDetails from "./fetchDetails";
 
 
 // intialize page message and number of lines on each page
@@ -8,22 +9,17 @@ messageText.textContent = "";
 
 // set the page number of lines on one page as constant
 const pagenumberOfLines = 5;
-
+let newPageSet = true;
+let selectRecipe = [];
 
 async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
-   if (inputNumber === 0) {
-        inputNumber = 10
-    }
-    if (inputIngredients === 0) {
-        inputIngredients = "salad"
-    }
 
     try {
 
         const response = await axios.get("https://api.spoonacular.com/recipes/findByIngredients", {
             params: {
-                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 ingredients: inputIngredients,
                 number: inputNumber,
                 ranking: 2,                                     /*---- maximize to be used ingredients -----*/
@@ -44,13 +40,19 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
 
+        newPageSet = true;
+
+
         createListLines(arrayDisplay);
         // reset the userInput
         inputIngredients.value = "";
 
+
         // listen to button id="buttonNext" to display next page
-        const button = document.getElementById("buttonNext");
-        button.addEventListener("click", (e) => {
+        const buttonNext = document.getElementById("buttonNext");
+
+        buttonNext.addEventListener("click", (e) => {
+            e.preventDefault();
 
                 // check display next page possible
                 if (lastLine < recipesLength) {
@@ -59,6 +61,8 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
                     firstLine += pagenumberOfLines;
                     lastLine += pagenumberOfLines;
                     arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+                    newPageSet = true;
+
 
                     createListLines(arrayDisplay);
                     // reset the userInput
@@ -73,6 +77,35 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
             }
         )
 
+
+
+
+
+// event listner select display detail
+        const formSubmitDetail = document.getElementById('recipe-list');
+        const buttonDetail = document.getElementById("buttonDetail");
+        console.log('buttonDetail',buttonDetail);
+
+        formSubmitDetail.addEventListener("submit", (e) => {
+
+                e.preventDefault();
+                console.log('e',e.target.value);
+
+                const selRec = handleradio();
+                newPageSet = false;
+                if (selRec.checked) {
+                    console.log(selRec.value);
+                    fetchDetails(selRec.value).then();
+                    selRec.checked = false;
+                    return;
+                }
+
+            }
+        )
+
+
+
+
     } catch
         (e) {
         console.error(e);
@@ -82,3 +115,28 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
 }
 
 export default fetchRecipeByIngredients;
+
+
+// If the checkbox is checked, display the output text
+
+function handleradio() {
+
+
+    if (newPageSet) {
+
+        let selRec = 0;
+        selectRecipe = [];
+        for (let i = 0; i < pagenumberOfLines; i++) {
+            // Get the checkbox
+            selRec = `selRec${i}`;
+            selectRecipe[i] = document.getElementById(selRec);
+        }
+    }
+    const selectRecipeF = selectRecipe.find((selRecItem) => {
+        console.log(selRecItem);
+        return (selRecItem.checked === true);
+
+    });
+    console.log(selectRecipeF)
+    return selectRecipeF;
+}
