@@ -62,10 +62,16 @@ listcontainer {
     justify-content: center;
     align-items: flex-start;
 }
+
 head-section {
     max-width: 900px;
     margin: 10px;
     text-align: left;
+}
+
+::placeholder {
+    font-weight: lighter;
+    color: palevioletred;
 }
 
 /*--------------------------*/
@@ -135,11 +141,11 @@ head-section {
     padding: 5px;
 
 }
+
 .img-p {
     width: 50px;
     border-radius: 10%;
 }
-
 
 
 .recipe-line {
@@ -147,6 +153,7 @@ head-section {
     flex-direction: row
 
 }
+
 /*-----recipe line items */
 
 #head-img {
@@ -180,6 +187,7 @@ head-section {
     width: 150px;
     margin-left: 20px;
 }
+
 #numberMax {
     width: 50px;
     margin-left: 10px;
@@ -190,9 +198,9 @@ head-section {
 }
 
 
-#cuisine-list {
+#cuisine-list, #menu-type-list {
     text-align: left;
-    height: 200px;
+    height:150px;
     flex-wrap: wrap;
     padding: 2px;
 
@@ -208,6 +216,19 @@ head-section {
     margin: 5px;
 }
 
+#buttonDetail {
+    background-color: orange;
+    font-size: medium;
+    border: solid 5px darkorange;
+    border-radius: 10px;
+    width: 90px;
+    height: 30px;
+    margin: 5px;
+    position: fixed;
+    top: 700px;
+    left: 500px;
+}
+
 #buttonNext {
     background-color: darkorange;
     color: white;
@@ -219,7 +240,7 @@ head-section {
     margin: 5px;
     position: fixed;
     top: 800px;
-    left: 400px;
+    left: 500px;
 }
 
 #button-style1, #button-style2, #button-style3 {
@@ -235,7 +256,7 @@ head-section {
     position: relative;
 }
 
-#button-style1:hover::after, #button-style2:hover::after, #button-style3:hover::after  {
+#button-style1:hover::after, #button-style2:hover::after, #button-style3:hover::after {
     position: absolute;
     content: "";
     display: block;
@@ -256,6 +277,14 @@ head-section {
     width: 20%
 }
 
+#detail-list {
+
+}
+
+#rec-item {
+    display: flex;
+    flex-direction: column}
+
 #rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr {
     font-size: small;
     display: block;
@@ -263,6 +292,18 @@ head-section {
     padding: 5px;
 
 }
+
+label {
+    font-size: smaller;
+}
+#ingredients {
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 0;
+}
+
+
 
 #mess-text {
     color: mediumblue;
@@ -275,4 +316,7 @@ head-section {
         left: 700px;
 
     }
+
+    #rec-item {
+        flex-direction: row}
 }

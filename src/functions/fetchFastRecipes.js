@@ -4,17 +4,17 @@ import createListLines from "./createListLines";
 // intialize page message and number of lines on each page
 const messageText = document.getElementById("message-text");
 messageText.textContent = "";
+
+// set the number of lines on one page as constant
 const numberOfLines = 5;
 
 async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
-    console.log('input', inputtimeR);
-    if (inputNumber === 0) {inputNumber = 10 };
-    if (inputtimeR === 0) {inputtimeR = 45};
+
     try {
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 type: inputMenuTypeString,
                 maxReadyTime: inputtimeR,
                 number: inputNumber
@@ -27,13 +27,13 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
 
         const foundRecipes = response.data.results;
         const recipesLength = foundRecipes.length;
-        console.log(foundRecipes);
+
 
         // create a list with maximum number of lines that uses array of all found
         let firstLine = 0;
         let lastLine = numberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-        console.log('array', recipesLength, foundRecipes);
+
         createListLines(arrayDisplay);
         // reset the userInput
 
@@ -50,24 +50,26 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
                     lastLine += numberOfLines;
                     arrayDisplay = foundRecipes.slice(firstLine, lastLine);
 
-                    console.log('fetchMenuR', arrayDisplay);
                     createListLines(arrayDisplay);
                     // reset the userInput
 
                 } else {
-                    console.log('stop');
                     let firstLine = 0;
                     let lastLine = numberOfLines;
+                    messageText.textContent = `For this input no data found.`;
                 }
 
             }
         )
+
+
 
     } catch
         (e) {
         console.error(e);
         // fill message text
         messageText.textContent = `For this input no data found.`;
+
     }
 }
 

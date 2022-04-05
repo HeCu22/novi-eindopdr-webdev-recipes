@@ -10,7 +10,7 @@
   <nav class="navbar">
     <a href="../index.html" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back"/> </a>
     <img id="head-img" src="../assets/logo%20img%20background.png" alt="logo-vegetables"/>
-    <a href="../menus/recipeDetail.html" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
+    <a href="#detail-list" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
                                                               alt="find recipe"/> </a>
   </nav>
   <h1>Recipes for home-style cookin'</h1>
@@ -52,20 +52,23 @@
       <sel-number class="row">
         <h4>Maximum number of recipes to present:</h4>
         <label for="numberMax">
-          <input type="number" id="numberMax" placeholder="10" name="numberMax" />
+          <input type="number" id="numberMax" value="15" name="numberMax" />
         </label>
         </sel-title>
       </sel-number>
 
-      <button id="buttonStart"> Start</button>
+      <button id="buttonStart" type="submit" form="on-submit-cuisine" name="buttonStart"> Start</button>
     </form>
     <div id="button-place"></div>
   </selstyle>
 </selcontainer>
 <listcontainer class="column">
   <div id="message-text">[message-text]</div>
-  <ul id="recipe-list">[doc-recipe-list]</ul>
+  <form id="recipe-list">[doc-recipe-list]</form>
 </listcontainer>
-<script src="../functions/retrieveInput.js" type="module"></script>
+<detailcontainer class="column">
+  <ul id="detail-list">[doc-recipe-list]</ul>
+</detailcontainer>
+<script src="../functions/retrieveInputCui.js" type="module"></script>
 </body>
 </html>

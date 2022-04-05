@@ -1,20 +1,15 @@
 import axios from 'axios';
 
-const listItems = [];
-
-let inputId = "639606";
+// initialize help variable to determine the img src string
 let tempImg = "";
 
-async function fetchDetails($inputId) {
-    // let idRecipex = Number(inputId);
-    console.log(inputId)
-    // inputId = 639606;
+async function fetchDetails(inputId) {
 
     try {
         const detailsRecipe = await axios.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
 
             },
@@ -23,57 +18,84 @@ async function fetchDetails($inputId) {
             }
         });
 
-        // make array from object detailsRecipe to pass it to createListLines
+  // get detail information from data
+       const detailList = document.getElementById("detail-list")
 
-        console.log('listItems', detailsRecipe.data);
-
-        const getDescription = document.getElementById("rec-description");
-        const getImg = document.getElementById("rec-img");
-        const getTime = document.getElementById('rec-time');
-        const getInstr = document.getElementById('rec-instr')
-        const getServ = document.getElementById('rec-serv');
-        const getIngr = document.getElementById('rec-ingr');
 
 // create container element for recipe line in div
         let recDiv = document.createElement('div');
-        recDiv.setAttribute('class', 'rec-item');
+        recDiv.setAttribute('id', 'rec-item');
+        recDiv.setAttribute('class', 'row');
+
+        // create p element with span for img
+        let recP = document.createElement('p');
+        let recSpan = document.createElement('span');
+        recP.textContent = "Description:";
+        recSpan.setAttribute('id', 'rec-description');
 
 //                 Create IMG element
         let recImg = document.createElement('img');
+        recImg.setAttribute('id', 'rec-img');
         recImg.setAttribute('class', 'img-det');
-        console.log('append', inputId);
-        tempImg = `https://spoonacular.com/recipeImages/`+inputId+`-556x370.jpg`;
-        console.log('temp', tempImg);
+
+        tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
         recImg.setAttribute('src', `${tempImg}`);
-        // put elements in container div
-        recDiv.appendChild(recImg);
 
-        // put elements in container List
-        getImg.appendChild(recDiv);
+        // put elements in container p
+        recP.appendChild(recSpan);
+        recP.appendChild(recImg);
+        recDiv.appendChild(recP);
 
 
-        getInstr.innerHTML = detailsRecipe.data.instructions;
-        getTime.textContent = detailsRecipe.data.readyInMinutes;
-        getServ.textContent = detailsRecipe.data.servings;
-        getDescription.textContent = detailsRecipe.data.title;
+        // create p element with span for cooking-time
+        let recP2 = document.createElement('p');
+        recP2.textContent = "Cooking time:";
+        let recSpan2 = document.createElement('span');
+        recSpan2.setAttribute('id', 'rec-time');
+        recSpan2.textContent = detailsRecipe.data.readyInMinutes;
+        // recSpan2.textContent = detailsRecipe.data.servings;
+        // put elements in container p
+        recP2.appendChild(recSpan2);
+        recDiv.appendChild(recP2);
 
+        // create p element with span for instructions
+        let recP3 = document.createElement('p');
+        recP3.textContent = "Instructions:";
+        let recSpan3 = document.createElement('span');
+        recSpan3.innerHTML = detailsRecipe.data.instructions;
+
+// put elements in container p
+        recP3.appendChild(recSpan3);
+        recDiv.appendChild(recP3);
+
+
+
+        // create p element with span for ingredients
+        let recP4 = document.createElement('p');
+        recP4.textContent = "Instructions:";
+        let recSpan4 = document.createElement('span');
         let instrucT = detailsRecipe.data.extendedIngredients[0].aisle;
         for (let i = 1; i < detailsRecipe.data.extendedIngredients.length; i++) {
             instrucT += ', ' + detailsRecipe.data.extendedIngredients[i].aisle;
         }
-        getIngr.textContent = instrucT;
+        recSpan4.textContent = instrucT;
+        // put elements in container p
+        recP4.appendChild(recSpan4);
+        recDiv.appendChild(recP4);
 
-        selRecipe0.value = "";
-        selRecipe1.value = "";
-        selRecipe2.value = "";
-        selRecipe3.value = "";
+        detailList.appendChild(recDiv)
+
+
+
 
     } catch (e) {
         console.error(e);
     }
 }
 
+export default fetchDetails;
 
 
 
-export default fetchDetails();
+
+

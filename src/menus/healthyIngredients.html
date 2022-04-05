@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Creative new or special Cuisine recipes</title>
+</head>
+<body>
+<head-section class="top">
+    <nav class="navbar">
+        <a href="../index.html" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back"/> </a>
+        <img id="head-img" src="../assets/logo%20img%20background.png" alt="logo-vegetables"/>
+        <a href="#detail-list" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
+                                                                  alt="find recipe"/> </a>
+    </nav>
+    <h1>Recipes for home-style cookin'</h1>
+    <p class="blankline"></p>
+    <p class="blankline"></p>
+    <h2>What you have to put in your Cooking Kit!</h2>
+
+
+</head-section>
+
+<selcontainer class="column">
+
+
+    <selstyle class="row">
+        <img class="icon-img" src="../assets/fridge.jpg" alt="fridge filled with ingredients"/>
+        <img class="icon-img" src="../assets/healthy.jpg" alt="healthy ingredients"/>
+        <form id="on-submit-search" class="column">
+
+            <ingredients class="row">
+
+                <p class="blankline"></p>
+                <h4>Ingredients to use:</h4>
+                <p class="blankline"></p>
+                <p class="blankline"></p>
+                <label for="ingredients" class="column">
+                    ..enter a comma-separated list of ingredients..
+                    <input type="text" id="ingredients" name="ingredients" value="" placeholder="lettuce,tomato"/>
+
+                </label>
+            </ingredients>
+
+            <p class="blankline"></p>
+            <p class="blankline"></p>
+            <sel-number class="row">
+                <h4>Maximum number of recipes to present:</h4>
+                <label for="numberMax">
+                    <input type="number" id="numberMax" value="15" name="numberMax"/>
+                </label>
+            </sel-number>
+
+            <button type="submit" form="on-submit-search" id="buttonStart">Start</button>
+        </form>
+        <div id="button-place"></div>
+    </selstyle>
+</selcontainer>
+<listcontainer class="column">
+    <div id="message-text">[message-text]</div>
+    <form id="recipe-list" class="column">
+    </form>
+</listcontainer>
+<div id="message">[message-text]</div>
+<detailcontainer class="column">
+    <ul id="detail-list">[doc-recipe-list]</ul>
+</detailcontainer>
+<script src="../main.js" type="module"></script>
+<script src="../functions/inputIngredients.js" type="module"></script>
+
+</body>
+</html>

@@ -1,12 +1,9 @@
 import fetchFastRecipes from './fetchFastRecipes';
 import createMenuTypeList from "./createMenuTypeList";
 
-console.log('menu');
-
 //array with cuisines;
 const menuTypes = ["main course","side dish","dessert","appetizer","salad","bread","breakfast","soup","beverage","sauce","marinde","fingerfood","snack","drink"];
 
-console.log('menutypes', menuTypes);
 createMenuTypeList(menuTypes);
 
 // reference save of user input
@@ -35,14 +32,15 @@ formSubmit.addEventListener("submit", (e) => {
     handleCheckbox();
 
     // keep input search field value in message text
+    if (inputtimeR.value) {} else {inputtimeR.value = 45};
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
         ${inputMenuTypeString}`;
-    console.log('input', inputSearching);
-    if (inputSearching > "") {
+     if (inputSearching > "") {
 
         fetchFastRecipes(inputtimeR.value, inputNumber.value, inputMenuTypeString).then();
     }
 })
+
 
 
 function handleCheckbox() {
