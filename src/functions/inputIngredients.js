@@ -4,7 +4,7 @@ import fetchRecipeByIngredients from './fetchRecipeByIngredients';
 let inputIngredients = document.getElementById('ingredients');
 let inputNumber = document.getElementById("numberMax");
 
-const formSubmit = document.getElementById('on-submit-search');
+const formSubmit = document.getElementById('on-submit-ingredients');
 const buttonStart = document.getElementById("buttonStart");
 
 // buttonDisplay for nextPage display

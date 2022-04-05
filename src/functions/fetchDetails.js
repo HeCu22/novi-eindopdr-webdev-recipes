@@ -32,6 +32,7 @@ async function fetchDetails(inputId) {
         let recSpan = document.createElement('span');
         recP.textContent = "Description:";
         recSpan.setAttribute('id', 'rec-description');
+        recSpan.textContent = detailsRecipe.data.description;
 
 //                 Create IMG element
         let recImg = document.createElement('img');
@@ -84,6 +85,8 @@ async function fetchDetails(inputId) {
         recDiv.appendChild(recP4);
 
         detailList.appendChild(recDiv)
+
+        document.getElementById('rec-item').scrollIntoView();
 
 
 

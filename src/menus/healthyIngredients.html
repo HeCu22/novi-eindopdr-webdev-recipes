@@ -6,14 +6,14 @@
     <title>Creative new or special Cuisine recipes</title>
 </head>
 <body>
-<head-section class="top">
+<head-section id="head-section" class="top">
     <nav class="navbar">
-        <a href="../index.html" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back"/> </a>
+        <a href="#top-header" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back"/> </a>
         <img id="head-img" src="../assets/logo%20img%20background.png" alt="logo-vegetables"/>
-        <a href="#detail-list" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
+        <a href="#recipe-list" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
                                                                   alt="find recipe"/> </a>
     </nav>
-    <h1>Recipes for home-style cookin'</h1>
+    <h1 id="top-header">Recipes for home-style cookin'</h1>
     <p class="blankline"></p>
     <p class="blankline"></p>
     <h2>What you have to put in your Cooking Kit!</h2>
@@ -21,13 +21,13 @@
 
 </head-section>
 
-<selcontainer class="column">
+<selcontainer id="sel-container" class="column">
 
 
     <selstyle class="row">
         <img class="icon-img" src="../assets/fridge.jpg" alt="fridge filled with ingredients"/>
         <img class="icon-img" src="../assets/healthy.jpg" alt="healthy ingredients"/>
-        <form id="on-submit-search" class="column">
+        <form id="on-submit-ingredients" class="column">
 
             <ingredients class="row">
 
@@ -51,7 +51,7 @@
                 </label>
             </sel-number>
 
-            <button type="submit" form="on-submit-search" id="buttonStart">Start</button>
+            <button type="submit" form="on-submit-ingredients" id="buttonStart">Start</button>
         </form>
         <div id="button-place"></div>
     </selstyle>

@@ -112,6 +112,8 @@ function createListLines(recipes) {
         recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
 
+        document.getElementById('recipe-list').scrollIntoView();
+
 
         i++
 

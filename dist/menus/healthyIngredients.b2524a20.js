@@ -520,7 +520,7 @@ var _fetchRecipeByIngredientsDefault = parcelHelpers.interopDefault(_fetchRecipe
 // reference save of user input
 let inputIngredients = document.getElementById('ingredients');
 let inputNumber = document.getElementById("numberMax");
-const formSubmit = document.getElementById('on-submit-search');
+const formSubmit = document.getElementById('on-submit-ingredients');
 const buttonStart = document.getElementById("buttonStart");
 // buttonDisplay for nextPage display
 const buttonDisp = document.getElementById("button-place");
@@ -638,7 +638,7 @@ function handleradio() {
         }
     }
     const selectRecipeF = selectRecipe.find((selRecItem)=>{
-        return selRecItem.checked === true;
+        if (selRecItem) return selRecItem.checked === true;
     });
     return selectRecipeF;
 }
@@ -724,6 +724,7 @@ function createListLines(recipes) {
         recipeList.appendChild(recipeLabel);
         recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
+        document.getElementById('recipe-list').scrollIntoView();
         i++;
     });
     recipeList.appendChild(recipeButton);

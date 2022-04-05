@@ -555,6 +555,7 @@ let inputTags = document.getElementById('tags');
 let inputTitle = document.getElementById('title');
 let inputNumber = document.getElementById("numberMax");
 let inputCuiString = '';
+// buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-cuisine');
 const buttonStart = document.getElementById("buttonStart");
 // buttonDisplay for nextPage display
@@ -568,17 +569,12 @@ let inputSearching = "";
 // event listner user input
 formSubmit.addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log('submit', e.target);
     // put input of cuisines marked in string
     handleCheckbox();
     // keep input search field value in message text
     inputSearching = `${inputAuthor.value} ${inputTags.value}  ${inputTitle.value} ${inputNumber.value}
         ${inputCuiString}`;
-    if (inputSearching > "") {
-        // if (inputNumber = 0) {inputNumber = 5 };
-        console.log('string', inputSearching);
-        _fetchCuiRecipesDefault.default(inputAuthor.value, inputTags.value, inputTitle.value, inputNumber.value, inputCuiString).then();
-    }
+    if (inputSearching > "") _fetchCuiRecipesDefault.default(inputAuthor.value, inputTags.value, inputTitle.value, inputNumber.value, inputCuiString).then();
 });
 function handleCheckbox() {
     // If the checkbox is checked, display the output text
@@ -592,12 +588,13 @@ function handleCheckbox() {
     const selectCuiF = selectCui.filter((selcuiItem)=>{
         return selcuiItem.checked === true;
     });
+    // initialize new search string
     inputCuiString = ",";
+    // fill searchstring with new input values
     for(let i1 = 0; i1 < selectCuiF.length; i1++){
         inputCuiString += selectCuiF[i1].value;
         inputCuiString += ",";
     }
-    console.log('inputcuistring', inputCuiString);
 }
 
 },{"./fetchCuiRecipes":"32peC","./createCuisineList":"99kzu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"32peC":[function(require,module,exports) {
@@ -612,10 +609,12 @@ var _fetchDetailsDefault = parcelHelpers.interopDefault(_fetchDetails);
 // intialize page message and number of lines on each page
 const messageText = document.getElementById("message-text");
 messageText.textContent = "";
+// set the number of lines on one page as constant
 const pagenumberOfLines = 5;
+// variables used in handleradio
 let newPageSet = true;
 let selectRecipe = [];
-// function to fetch data
+// function to fetch data and make a get request to spoonacular api
 async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, inputCuisine) {
     try {
         //  receive the fetched data in response
@@ -647,7 +646,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         inputAuthor.value = '';
         inputTags.value = '';
         inputTitle.value = '';
-        // inputNumber.value = 15;
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");
         buttonNext.addEventListener("click", (e)=>{
@@ -669,6 +667,7 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
             } else {
                 let firstLine = 0;
                 let lastLine = pagenumberOfLines;
+                messageText.textContent = `For this input no data found.`;
             }
         });
         // event listner select display detail
@@ -676,7 +675,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         const buttonDetail = document.getElementById("buttonDetail");
         formSubmitDetail.addEventListener("submit", (e)=>{
             e.preventDefault();
-            console.log('submitdetail', e.target);
             // check which radiobutton filled
             const selRec = handleradio();
             // if radio button checked and data then fetch the details via id found in function handle radio
@@ -694,7 +692,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         messageText.textContent = `For this input no data found.`;
     }
 }
-exports.default = fetchCuiRecipes;
 // If the checkbox is checked, display the output text
 function handleradio() {
     if (newPageSet) {
@@ -709,9 +706,9 @@ function handleradio() {
     const selectRecipeF = selectRecipe.find((selRecItem)=>{
         if (selRecItem) return selRecItem.checked === true;
     });
-    console.log('sel', selectRecipeF);
     return selectRecipeF;
 }
+exports.default = fetchCuiRecipes;
 
 },{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./fetchDetails":"bBbOH"}],"a6p3L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -794,6 +791,7 @@ function createListLines(recipes) {
         recipeList.appendChild(recipeLabel);
         recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
+        document.getElementById('recipe-list').scrollIntoView();
         i++;
     });
     recipeList.appendChild(recipeButton);

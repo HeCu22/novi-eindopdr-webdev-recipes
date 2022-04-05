@@ -11,9 +11,9 @@ let inputtimeR = document.getElementById('time-ready');
 let inputNumber = document.getElementById("numberMax");
 let inputMenuTypeString = '';
 
-
+// buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-fast');
-const button = document.getElementById("buttonStart");
+const buttonStart = document.getElementById("buttonStart");
 
 // buttonDisplay for nextPage display
 const buttonDisp = document.getElementById("button-place");
@@ -35,8 +35,8 @@ formSubmit.addEventListener("submit", (e) => {
     if (inputtimeR.value) {} else {inputtimeR.value = 45};
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
         ${inputMenuTypeString}`;
+    console.log(inputSearching);
      if (inputSearching > "") {
-
         fetchFastRecipes(inputtimeR.value, inputNumber.value, inputMenuTypeString).then();
     }
 })
@@ -46,8 +46,6 @@ formSubmit.addEventListener("submit", (e) => {
 function handleCheckbox() {
 
     // If the checkbox is checked, display the output text
-
-
     let selMenu = 0;
     let selectMenu = [];
     for (let i = 0; i < menuTypes.length; i++) {
@@ -59,6 +57,11 @@ function handleCheckbox() {
     const selectMenuF = selectMenu.filter((selMenuItem) => {
         return (selMenuItem.checked === true);
     });
+
+    // initialize new search string
+    inputMenuTypeString = ","
+
+    // fill searchstring with new input values
     for (let i = 0; i < selectMenuF.length; i++) {
         inputMenuTypeString += selectMenuF[i].value;
         inputMenuTypeString += ",";

@@ -541,8 +541,9 @@ _createMenuTypeListDefault.default(menuTypes);
 let inputtimeR = document.getElementById('time-ready');
 let inputNumber = document.getElementById("numberMax");
 let inputMenuTypeString = '';
+// buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-fast');
-const button = document.getElementById("buttonStart");
+const buttonStart = document.getElementById("buttonStart");
 // buttonDisplay for nextPage display
 const buttonDisp = document.getElementById("button-place");
 let buttonTag = document.createElement("button");
@@ -561,6 +562,7 @@ formSubmit.addEventListener("submit", (e)=>{
     else inputtimeR.value = 45;
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
         ${inputMenuTypeString}`;
+    console.log(inputSearching);
     if (inputSearching > "") _fetchFastRecipesDefault.default(inputtimeR.value, inputNumber.value, inputMenuTypeString).then();
 });
 function handleCheckbox() {
@@ -575,6 +577,9 @@ function handleCheckbox() {
     const selectMenuF = selectMenu.filter((selMenuItem)=>{
         return selMenuItem.checked === true;
     });
+    // initialize new search string
+    inputMenuTypeString = ",";
+    // fill searchstring with new input values
     for(let i1 = 0; i1 < selectMenuF.length; i1++){
         inputMenuTypeString += selectMenuF[i1].value;
         inputMenuTypeString += ",";
@@ -588,13 +593,20 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createListLines = require("./createListLines");
 var _createListLinesDefault = parcelHelpers.interopDefault(_createListLines);
+var _fetchDetails = require("./fetchDetails");
+var _fetchDetailsDefault = parcelHelpers.interopDefault(_fetchDetails);
 // intialize page message and number of lines on each page
 const messageText = document.getElementById("message-text");
 messageText.textContent = "";
 // set the number of lines on one page as constant
-const numberOfLines = 5;
+const pagenumberOfLines = 5;
+// variables used in handleradio
+let newPageSet = true;
+let selectRecipe = [];
+// function to fetch data and make a get request to spoonacular api
 async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
     try {
+        //  receive the fetched data in response
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
@@ -607,29 +619,50 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
                 "Content-Type": "application/json"
             }
         });
+        // save result constant
         const foundRecipes = response.data.results;
         const recipesLength = foundRecipes.length;
         // create a list with maximum number of lines that uses array of all found
         let firstLine = 0;
-        let lastLine = numberOfLines;
+        let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+        // initialize first page
+        newPageSet = true;
         _createListLinesDefault.default(arrayDisplay);
         // reset the userInput
         // listen to button id="buttonNext" to display next page
         const button = document.getElementById("buttonNext");
         button.addEventListener("click", (e)=>{
+            e.preventDefault();
             // check display next page possible
             if (lastLine < recipesLength) {
                 // add-up the slice cake and crate next page
-                firstLine += numberOfLines;
-                lastLine += numberOfLines;
+                firstLine += pagenumberOfLines;
+                lastLine += pagenumberOfLines;
                 arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+                // initialize first page
+                newPageSet = true;
                 _createListLinesDefault.default(arrayDisplay);
-            // reset the userInput
             } else {
                 let firstLine = 0;
-                let lastLine = numberOfLines;
+                let lastLine = pagenumberOfLines;
                 messageText.textContent = `For this input no data found.`;
+            }
+        });
+        // event listner select display detail
+        const formSubmitDetail = document.getElementById('recipe-list');
+        const buttonDetail = document.getElementById("buttonDetail");
+        formSubmitDetail.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            // check which radiobutton filled
+            const selRec = handleradio();
+            // if radio button checked and data then fetch the details via id found in function handle radio
+            if (selRec) {
+                // new page actions are performed in handle radio
+                newPageSet = false;
+                _fetchDetailsDefault.default(selRec.value).then();
+                //     initialize selRec.checked after display, to make sure details are only once displayed
+                selRec.checked = false;
             }
         });
     } catch (e) {
@@ -638,9 +671,25 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
         messageText.textContent = `For this input no data found.`;
     }
 }
+// If the checkbox is checked, display the output text
+function handleradio() {
+    if (newPageSet) {
+        let selRec = 0;
+        selectRecipe = [];
+        for(let i = 0; i < pagenumberOfLines; i++){
+            // Get the checkbox
+            selRec = `selRec${i}`;
+            selectRecipe[i] = document.getElementById(selRec);
+        }
+    }
+    const selectRecipeF = selectRecipe.find((selRecItem)=>{
+        if (selRecItem) return selRecItem.checked === true;
+    });
+    return selectRecipeF;
+}
 exports.default = fetchFastRecipes;
 
-},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a6p3L":[function(require,module,exports) {
+},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./fetchDetails":"bBbOH"}],"a6p3L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createListLines(recipes) {
@@ -721,6 +770,7 @@ function createListLines(recipes) {
         recipeList.appendChild(recipeLabel);
         recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
+        document.getElementById('recipe-list').scrollIntoView();
         i++;
     });
     recipeList.appendChild(recipeButton);

@@ -133,7 +133,9 @@ function handleradio() {
         }
     }
     const selectRecipeF = selectRecipe.find((selRecItem) => {
-        return (selRecItem.checked === true);
+        if (selRecItem) {
+            return (selRecItem.checked === true);
+        }
 
     });
        return selectRecipeF;

@@ -6,15 +6,16 @@ import fetchDetails from "./fetchDetails";
 const messageText = document.getElementById("message-text");
 messageText.textContent = "";
 
+// set the number of lines on one page as constant
 const pagenumberOfLines = 5;
+
+// variables used in handleradio
 let newPageSet = true;
 let selectRecipe = [];
 
-// function to fetch data
+// function to fetch data and make a get request to spoonacular api
 async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, inputCuisine) {
-
     try {
-
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
@@ -50,8 +51,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         inputTags.value = '';
         inputTitle.value = '';
 
-        // inputNumber.value = 15;
-
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");
         buttonNext.addEventListener("click", (e) => {
@@ -78,6 +77,7 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
                 } else {
                     let firstLine = 0;
                     let lastLine = pagenumberOfLines;
+                    messageText.textContent = `For this input no data found.`;
                 }
 
             }
@@ -89,7 +89,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
 
         formSubmitDetail.addEventListener("submit", (e) => {
                 e.preventDefault();
-                console.log('submitdetail', e.target)
 
                 // check which radiobutton filled
                 const selRec = handleradio();
@@ -119,11 +118,8 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
 }
 
 
-export default fetchCuiRecipes;
-
 
 // If the checkbox is checked, display the output text
-
 function handleradio() {
 
 
@@ -142,6 +138,9 @@ function handleradio() {
         }
 
     });
-    console.log('sel', selectRecipeF);
     return selectRecipeF;
 }
+
+
+
+export default fetchCuiRecipes;
