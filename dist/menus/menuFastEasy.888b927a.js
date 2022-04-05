@@ -597,8 +597,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
     try {
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 type: inputMenuTypeString,
                 maxReadyTime: inputtimeR,
                 number: inputNumber
@@ -665,6 +665,7 @@ function createListLines(recipes) {
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
+    recipeButton.setAttribute("name", 'buttonDetail');
     recipeButton.textContent = "Details";
     // one or more recipe lines are possible
     recipes.map((recipe, number)=>{

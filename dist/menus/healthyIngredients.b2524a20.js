@@ -517,8 +517,6 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _fetchRecipeByIngredients = require("./fetchRecipeByIngredients");
 var _fetchRecipeByIngredientsDefault = parcelHelpers.interopDefault(_fetchRecipeByIngredients);
-var _fetchFastRecipes = require("./fetchFastRecipes");
-var _fetchFastRecipesDefault = parcelHelpers.interopDefault(_fetchFastRecipes);
 // reference save of user input
 let inputIngredients = document.getElementById('ingredients');
 let inputNumber = document.getElementById("numberMax");
@@ -535,13 +533,12 @@ let inputSearching = "";
 // event listner user input
 formSubmit.addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log('buttonStart', buttonStart);
     // keep input search field value in message text
     inputSearching = `${inputIngredients.value} ${inputNumber.value}`;
     if (inputSearching > "") _fetchRecipeByIngredientsDefault.default(inputIngredients.value, inputNumber.value).then();
 });
 
-},{"./fetchRecipeByIngredients":"c9Hv4","./fetchFastRecipes":"jzWc5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c9Hv4":[function(require,module,exports) {
+},{"./fetchRecipeByIngredients":"c9Hv4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c9Hv4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
@@ -561,8 +558,8 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
     try {
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/findByIngredients", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 ingredients: inputIngredients,
                 number: inputNumber,
                 ranking: 2,
@@ -578,6 +575,7 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
         let firstLine = 0;
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+        // initialize first page
         newPageSet = true;
         _createListLinesDefault.default(arrayDisplay);
         // reset the userInput
@@ -592,6 +590,7 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
                 firstLine += pagenumberOfLines;
                 lastLine += pagenumberOfLines;
                 arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+                // initialize first page
                 newPageSet = true;
                 _createListLinesDefault.default(arrayDisplay);
                 // reset the userInput
@@ -605,16 +604,18 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
         // event listner select display detail
         const formSubmitDetail = document.getElementById('recipe-list');
         const buttonDetail = document.getElementById("buttonDetail");
-        console.log('buttonDetail', buttonDetail);
         formSubmitDetail.addEventListener("submit", (e)=>{
             e.preventDefault();
-            console.log('e', e.target.value);
+            // check which radiobutton filled
             const selRec = handleradio();
+            // new page actions are performed in handle radio
             newPageSet = false;
-            if (selRec.checked) {
-                console.log(selRec.value);
+            // if radio button checked and data then fetch the details via id in selrec.value
+            if (selRec) {
                 _fetchDetailsDefault.default(selRec.value).then();
+                //     initialize selRec.checked after display, to make sure details are only once displayed
                 selRec.checked = false;
+                // stop the loop!;
                 return;
             }
         });
@@ -637,10 +638,8 @@ function handleradio() {
         }
     }
     const selectRecipeF = selectRecipe.find((selRecItem)=>{
-        console.log(selRecItem);
         return selRecItem.checked === true;
     });
-    console.log(selectRecipeF);
     return selectRecipeF;
 }
 
@@ -669,6 +668,7 @@ function createListLines(recipes) {
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
+    recipeButton.setAttribute("name", 'buttonDetail');
     recipeButton.textContent = "Details";
     // one or more recipe lines are possible
     recipes.map((recipe, number)=>{
@@ -730,65 +730,6 @@ function createListLines(recipes) {
 }
 exports.default = createListLines;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jzWc5":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _createListLines = require("./createListLines");
-var _createListLinesDefault = parcelHelpers.interopDefault(_createListLines);
-// intialize page message and number of lines on each page
-const messageText = document.getElementById("message-text");
-messageText.textContent = "";
-// set the number of lines on one page as constant
-const numberOfLines = 5;
-async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
-    try {
-        const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
-            params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
-                type: inputMenuTypeString,
-                maxReadyTime: inputtimeR,
-                number: inputNumber
-            },
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        const foundRecipes = response.data.results;
-        const recipesLength = foundRecipes.length;
-        // create a list with maximum number of lines that uses array of all found
-        let firstLine = 0;
-        let lastLine = numberOfLines;
-        let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-        _createListLinesDefault.default(arrayDisplay);
-        // reset the userInput
-        // listen to button id="buttonNext" to display next page
-        const button = document.getElementById("buttonNext");
-        button.addEventListener("click", (e)=>{
-            // check display next page possible
-            if (lastLine < recipesLength) {
-                // add-up the slice cake and crate next page
-                firstLine += numberOfLines;
-                lastLine += numberOfLines;
-                arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-                _createListLinesDefault.default(arrayDisplay);
-            // reset the userInput
-            } else {
-                let firstLine = 0;
-                let lastLine = numberOfLines;
-                messageText.textContent = `For this input no data found.`;
-            }
-        });
-    } catch (e) {
-        console.error(e);
-        // fill message text
-        messageText.textContent = `For this input no data found.`;
-    }
-}
-exports.default = fetchFastRecipes;
-
-},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lHHDo","4mKD0"], "4mKD0", "parcelRequiree541")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lHHDo","4mKD0"], "4mKD0", "parcelRequiree541")
 
 //# sourceMappingURL=healthyIngredients.b2524a20.js.map

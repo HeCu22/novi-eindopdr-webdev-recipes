@@ -518,22 +518,20 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+// initialize help variable to determine the img src string
 let tempImg = "";
 async function fetchDetails(inputId) {
-    console.log('input2', inputId);
     try {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {
                 "Content-Type": "application/json"
             }
         });
-        // make array from object detailsRecipe to pass it to createListLines
-        console.log('listItems', detailsRecipe.data);
         // get detail information from data
         const detailList = document.getElementById("detail-list");
         // create container element for recipe line in div

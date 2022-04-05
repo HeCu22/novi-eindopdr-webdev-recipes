@@ -251,6 +251,14 @@ head-section {
   width: 20%;
 }
 
+#detail-list {
+}
+
+#rec-item {
+  flex-direction: column;
+  display: flex;
+}
+
 #rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr {
   max-width: 700px;
   padding: 5px;
@@ -277,6 +285,10 @@ label {
   #buttonNext {
     top: 800px;
     left: 700px;
+  }
+
+  #rec-item {
+    flex-direction: row;
   }
 }
 

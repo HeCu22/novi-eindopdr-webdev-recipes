@@ -277,6 +277,14 @@ head-section {
     width: 20%
 }
 
+#detail-list {
+
+}
+
+#rec-item {
+    display: flex;
+    flex-direction: column}
+
 #rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr {
     font-size: small;
     display: block;
@@ -308,4 +316,7 @@ label {
         left: 700px;
 
     }
+
+    #rec-item {
+        flex-direction: row}
 }

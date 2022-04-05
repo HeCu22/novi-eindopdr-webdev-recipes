@@ -31,6 +31,7 @@ function createListLines(recipes) {
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
+    recipeButton.setAttribute("name",'buttonDetail');
     recipeButton.textContent = "Details";
 
 

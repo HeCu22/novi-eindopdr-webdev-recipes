@@ -1,15 +1,15 @@
 import axios from 'axios';
 
+// initialize help variable to determine the img src string
 let tempImg = "";
 
 async function fetchDetails(inputId) {
-    console.log('input2', inputId)
 
     try {
         const detailsRecipe = await axios.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
 
             },
@@ -18,12 +18,7 @@ async function fetchDetails(inputId) {
             }
         });
 
-        // make array from object detailsRecipe to pass it to createListLines
-
-        console.log('listItems', detailsRecipe.data);
-
-
-// get detail information from data
+  // get detail information from data
        const detailList = document.getElementById("detail-list")
 
 

@@ -1,6 +1,4 @@
 import fetchRecipeByIngredients from './fetchRecipeByIngredients';
-import fetchFastRecipes from "./fetchFastRecipes";
-
 
 // reference save of user input
 let inputIngredients = document.getElementById('ingredients');
@@ -18,17 +16,15 @@ buttonDisp.appendChild(buttonTag);
 
 // initialize input search field value in message text.
 let inputSearching = "";
-// event listner user input
 
+// event listner user input
 formSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log('buttonStart',buttonStart);
 
     // keep input search field value in message text
     inputSearching = `${inputIngredients.value} ${inputNumber.value}`;
 
     if (inputSearching > "") {
-
         fetchRecipeByIngredients(inputIngredients.value, inputNumber.value).then();
     }
 })

@@ -18,8 +18,8 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
 
         const response = await axios.get("https://api.spoonacular.com/recipes/findByIngredients", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 ingredients: inputIngredients,
                 number: inputNumber,
                 ranking: 2,                                     /*---- maximize to be used ingredients -----*/
@@ -40,17 +40,15 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
 
+        // initialize first page
         newPageSet = true;
-
 
         createListLines(arrayDisplay);
         // reset the userInput
         inputIngredients.value = "";
 
-
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");
-
         buttonNext.addEventListener("click", (e) => {
             e.preventDefault();
 
@@ -61,8 +59,9 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
                     firstLine += pagenumberOfLines;
                     lastLine += pagenumberOfLines;
                     arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-                    newPageSet = true;
 
+                    // initialize first page
+                    newPageSet = true;
 
                     createListLines(arrayDisplay);
                     // reset the userInput
@@ -79,24 +78,26 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
 
 
 
-
-
 // event listner select display detail
         const formSubmitDetail = document.getElementById('recipe-list');
         const buttonDetail = document.getElementById("buttonDetail");
-        console.log('buttonDetail',buttonDetail);
 
         formSubmitDetail.addEventListener("submit", (e) => {
-
                 e.preventDefault();
-                console.log('e',e.target.value);
 
+                  // check which radiobutton filled
                 const selRec = handleradio();
+
+                // new page actions are performed in handle radio
                 newPageSet = false;
-                if (selRec.checked) {
-                    console.log(selRec.value);
+
+            // if radio button checked and data then fetch the details via id in selrec.value
+                if (selRec) {
                     fetchDetails(selRec.value).then();
+
+              //     initialize selRec.checked after display, to make sure details are only once displayed
                     selRec.checked = false;
+                    // stop the loop!;
                     return;
                 }
 
@@ -123,7 +124,6 @@ function handleradio() {
 
 
     if (newPageSet) {
-
         let selRec = 0;
         selectRecipe = [];
         for (let i = 0; i < pagenumberOfLines; i++) {
@@ -133,10 +133,8 @@ function handleradio() {
         }
     }
     const selectRecipeF = selectRecipe.find((selRecItem) => {
-        console.log(selRecItem);
         return (selRecItem.checked === true);
 
     });
-    console.log(selectRecipeF)
-    return selectRecipeF;
+       return selectRecipeF;
 }

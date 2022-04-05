@@ -17,7 +17,7 @@ let inputCuiString = '';
 
 
 const formSubmit = document.getElementById('on-submit-cuisine');
-const button = document.getElementById("buttonStart");
+const buttonStart = document.getElementById("buttonStart");
 
 // buttonDisplay for nextPage display
 const buttonDisp = document.getElementById("button-place");
@@ -32,17 +32,20 @@ let inputSearching = "";
 // event listner user input
 formSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
+    console.log('submit', e.target);
 
     // put input of cuisines marked in string
-    handleCheckbox();
+     handleCheckbox();
 
     // keep input search field value in message text
     inputSearching = `${inputAuthor.value} ${inputTags.value}  ${inputTitle.value} ${inputNumber.value}
         ${inputCuiString}`;
 
     if (inputSearching > "") {
-        if (inputNumber = 0) {inputNumber = 5 };
+        // if (inputNumber = 0) {inputNumber = 5 };
+        console.log('string', inputSearching);
         fetchCuiRecipes(inputAuthor.value, inputTags.value, inputTitle.value, inputNumber.value, inputCuiString).then();
+
     }
 })
 
@@ -64,9 +67,11 @@ function handleCheckbox() {
     const selectCuiF = selectCui.filter((selcuiItem) => {
         return (selcuiItem.checked === true);
     });
+    inputCuiString = ","
     for (let i = 0; i < selectCuiF.length; i++) {
         inputCuiString += selectCuiF[i].value;
         inputCuiString += ",";
     }
+    console.log('inputcuistring', inputCuiString)
 
 }
