@@ -32,41 +32,6 @@ ul {
   list-style: none;
 }
 
-selcontainer {
-  max-width: 900px;
-  text-align: left;
-  margin-left: 50px;
-  padding: 50px;
-}
-
-selstyle {
-  justify-content: center;
-  align-items: center;
-}
-
-descr1, descr2, descr3 {
-  width: 200px;
-  justify-content: center;
-}
-
-listcontainer {
-  max-width: 900px;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 50px;
-}
-
-head-section {
-  max-width: 900px;
-  text-align: left;
-  margin: 10px;
-}
-
-::placeholder {
-  color: #db7093;
-  font-weight: lighter;
-}
-
 .row {
   flex-direction: row;
   display: flex;
@@ -109,6 +74,10 @@ head-section {
   margin: 20px;
 }
 
+.icon-img-extra {
+  margin: 10px;
+}
+
 .icon-img32 {
   width: 50px;
   margin: 5px;
@@ -122,6 +91,7 @@ head-section {
 .font-p {
   margin: 5px;
   padding: 5px;
+  font-size: medium;
 }
 
 .img-p {
@@ -132,6 +102,45 @@ head-section {
 .recipe-line {
   flex-direction: row;
   display: flex;
+}
+
+::placeholder {
+  color: #db7093;
+  font-weight: lighter;
+}
+
+#sel-container {
+  max-width: 900px;
+  text-align: left;
+  margin-left: 50px;
+  padding: 50px;
+}
+
+#sel-style {
+  justify-content: center;
+  align-items: center;
+}
+
+#descr1, #descr2, #descr3 {
+  width: 200px;
+  justify-content: center;
+}
+
+#list-container {
+  max-width: 900px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 50px;
+}
+
+#detail-container {
+  margin-left: 50px;
+}
+
+#head-section {
+  max-width: 900px;
+  text-align: left;
+  margin: 10px;
 }
 
 #head-img {
@@ -174,7 +183,7 @@ head-section {
   color: #639;
 }
 
-#cuisine-list, #menu-type-list {
+#cuisine-list, #meal-type-list {
   text-align: left;
   height: 150px;
   flex-wrap: wrap;
@@ -182,66 +191,43 @@ head-section {
 }
 
 #buttonStart {
-  width: 90px;
+  width: 200px;
   height: 30px;
   background-color: orange;
   border: 5px solid #ff8c00;
   border-radius: 10px;
   margin: 5px;
   font-size: medium;
+  position: relative;
+  top: 10px;
+  left: 100px;
 }
 
 #buttonDetail {
-  width: 90px;
+  width: 200px;
   height: 30px;
   background-color: orange;
   border: 5px solid #ff8c00;
   border-radius: 10px;
   margin: 5px;
   font-size: medium;
-  position: fixed;
-  top: 700px;
-  left: 500px;
+  position: relative;
+  top: -10px;
+  left: 300px;
 }
 
 #buttonNext {
-  color: #fff;
-  border-: solid 5px orangered;
-  width: 32px;
-  height: 32px;
-  background-color: #ff8c00;
-  border-radius: 10px;
-  margin: 5px;
-  font-size: medium;
-  position: fixed;
-  top: 800px;
-  left: 500px;
-}
-
-#button-style1, #button-style2, #button-style3 {
   color: #fff;
   width: 32px;
   height: 32px;
   background-color: #ff8c00;
   border: 5px solid #ff4500;
-  border-left: none;
   border-radius: 10px;
-  margin: 50px;
+  margin: 5px;
   font-size: medium;
   position: relative;
-}
-
-#button-style1:hover:after, #button-style2:hover:after, #button-style3:hover:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-top: 15px solid #0000;
-  border-bottom: 15px solid #0000;
-  border-left: 20px solid #ff4500;
-  display: block;
-  position: absolute;
-  top: -4px;
-  right: -20px;
+  bottom: 100px;
+  left: 350px;
 }
 
 #recipe-list {
@@ -256,14 +242,35 @@ head-section {
 
 #rec-item {
   flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 10px;
   display: flex;
 }
 
-#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr {
+#rec-art {
+  flex: 1 0 250px;
+  gap: 10px;
+}
+
+#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr, span {
   max-width: 700px;
-  padding: 5px;
-  font-size: small;
-  display: block;
+}
+
+#rec-img {
+  max-width: 430px;
+  border-radius: 10%;
+}
+
+.rec-description {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 16px;
+}
+
+.rec-text {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 label {
@@ -277,14 +284,19 @@ label {
   font-weight: 600;
 }
 
+#ingr-text {
+  margin: 10px;
+  padding: 10px;
+}
+
 #mess-text {
   color: #0000cd;
 }
 
 @media screen and (min-width: 768px) {
   #buttonNext {
-    top: 800px;
-    left: 700px;
+    bottom: 100px;
+    left: 500px;
   }
 
   #rec-item {

@@ -10,6 +10,7 @@ function createListLines(recipes) {
     // Zorg ervoor dat na elke zoekopdracht en dat er altijd het gewenste zoekresultaat op de pagina staat;
     recipeList.replaceChildren();
 
+
     if (recipes.length < numberOfLines) {
         messageText.textContent = `Last data found. Press Start to go to first page.`;
     } else {

@@ -36,44 +36,6 @@ ul {
     margin-left: 10px;
 }
 
-
-selcontainer {
-    max-width: 900px;
-    margin-left: 50px;
-    padding: 50px;
-    text-align: left;
-
-}
-
-selstyle {
-    justify-content: center;
-    align-items: center;
-}
-
-
-descr1, descr2, descr3 {
-    justify-content: center;
-    width: 200px;
-}
-
-listcontainer {
-    max-width: 900px;
-    margin: 50px;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-head-section {
-    max-width: 900px;
-    margin: 10px;
-    text-align: left;
-}
-
-::placeholder {
-    font-weight: lighter;
-    color: palevioletred;
-}
-
 /*--------------------------*/
 /*       reusable           */
 /*--------------------------*/
@@ -124,6 +86,10 @@ head-section {
 
 }
 
+.icon-img-extra {
+    margin: 10px;
+}
+
 .icon-img32 {
     width: 50px;
     padding: 5px;
@@ -139,6 +105,7 @@ head-section {
 .font-p {
     margin: 5px;
     padding: 5px;
+    font-size: medium;
 
 }
 
@@ -147,12 +114,56 @@ head-section {
     border-radius: 10%;
 }
 
-
 .recipe-line {
     display: flex;
-    flex-direction: row
+    flex-direction: row;
 
 }
+
+::placeholder {
+    font-weight: lighter;
+    color: palevioletred;
+}
+
+
+#sel-container {
+    max-width: 900px;
+    margin-left: 50px;
+    padding: 50px;
+    text-align: left;
+
+}
+
+#sel-style {
+    justify-content: center;
+    align-items: center;
+}
+
+
+#descr1, #descr2, #descr3 {
+    justify-content: center;
+    width: 200px;
+}
+
+#list-container {
+    max-width: 900px;
+    margin: 50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#detail-container {
+    margin-left: 50px;
+}
+
+#head-section {
+    max-width: 900px;
+    margin: 10px;
+    text-align: left;
+}
+
+
+
 
 /*-----recipe line items */
 
@@ -198,7 +209,7 @@ head-section {
 }
 
 
-#cuisine-list, #menu-type-list {
+#cuisine-list, #meal-type-list {
     text-align: left;
     height:150px;
     flex-wrap: wrap;
@@ -211,9 +222,12 @@ head-section {
     font-size: medium;
     border: solid 5px darkorange;
     border-radius: 10px;
-    width: 90px;
+    width: 200px;
     height: 30px;
     margin: 5px;
+    position: relative;
+    top: 10px;
+    left: 100px;
 }
 
 #buttonDetail {
@@ -221,54 +235,28 @@ head-section {
     font-size: medium;
     border: solid 5px darkorange;
     border-radius: 10px;
-    width: 90px;
+    width: 200px;
     height: 30px;
     margin: 5px;
-    position: fixed;
-    top: 700px;
-    left: 500px;
+    position: relative;
+    top: -10px;
+    left: 300px;
 }
 
 #buttonNext {
     background-color: darkorange;
     color: white;
     font-size: medium;
-    border-: solid 5px orangered;
+    border: solid 5px orangered;
     border-radius: 10px;
     width: 32px;
     height: 32px;
     margin: 5px;
-    position: fixed;
-    top: 800px;
-    left: 500px;
-}
-
-#button-style1, #button-style2, #button-style3 {
-    background-color: darkorange;
-    color: white;
-    font-size: medium;
-    border: solid 5px orangered;
-    border-left: orange;
-    border-radius: 10px;
-    width: 32px;
-    height: 32px;
-    margin: 50px;
     position: relative;
+    bottom: 100px;
+    left: 350px;
 }
 
-#button-style1:hover::after, #button-style2:hover::after, #button-style3:hover::after {
-    position: absolute;
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-left: 20px solid orangered;
-    border-bottom: 15px solid transparent;
-    position: absolute;
-    right: -20px;
-    top: -4px;
-}
 
 #recipe-list {
 }
@@ -281,16 +269,48 @@ head-section {
 
 }
 
+/* selectors for detail list - recipe details */
+
 #rec-item {
     display: flex;
-    flex-direction: column}
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 10px;
+}
 
-#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr {
-    font-size: small;
-    display: block;
+#rec-art {
+    /* item mag groeien */
+
+    flex-grow: 1;
+    /* item mag niet kleiner worden dan de basis*/
+    gap: 10px;
+    flex-shrink: 0;
+    flex-basis: 250px;
+}
+
+#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr, span {
+    /*font-size: small;*/
+    /*display: block;*/
     max-width: 700px;
-    padding: 5px;
+    /*padding: 5px;*/
 
+}
+
+#rec-img {
+    max-width: 430px;
+    border-radius: 10%;
+}
+
+.rec-description {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16px;
+}
+
+.rec-text {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 14px;
+    font-weight: normal;
 }
 
 label {
@@ -303,7 +323,10 @@ label {
     padding: 20px 0;
 }
 
-
+#ingr-text {
+    margin: 10px;
+    padding: 10px;
+}
 
 #mess-text {
     color: mediumblue;
@@ -312,11 +335,13 @@ label {
 @media screen and (min-width: 768px) {
 
     #buttonNext {
-        top: 800px;
-        left: 700px;
+        bottom: 100px;
+        left: 500px;
 
     }
 
     #rec-item {
-        flex-direction: row}
+        flex-direction: row;
+        /*flex-wrap: wrap*/
+    }
 }

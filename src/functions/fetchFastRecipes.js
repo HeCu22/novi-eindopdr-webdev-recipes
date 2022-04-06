@@ -14,14 +14,14 @@ let newPageSet = true;
 let selectRecipe = [];
 
 // function to fetch data and make a get request to spoonacular api
-async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
+async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
     try {
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
-                type: inputMenuTypeString,
+                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                type: inputMealTypeString,
                 maxReadyTime: inputtimeR,
                 number: inputNumber
             },
@@ -34,7 +34,7 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
         // save result constant
         const foundRecipes = response.data.results;
         const recipesLength = foundRecipes.length;
-
+        console.log('length',recipesLength)
 
         // create a list with maximum number of lines that uses array of all found
         let firstLine = 0;
@@ -45,8 +45,6 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
         newPageSet = true;
 
         createListLines(arrayDisplay);
-        // reset the userInput
-
 
         // listen to button id="buttonNext" to display next page
         const button = document.getElementById("buttonNext");
@@ -64,7 +62,6 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
                     newPageSet = true;
 
                     createListLines(arrayDisplay);
-
 
                 } else {
                     let firstLine = 0;

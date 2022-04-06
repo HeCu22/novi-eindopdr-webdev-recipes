@@ -1,26 +1,20 @@
 import fetchFastRecipes from './fetchFastRecipes';
-import createMenuTypeList from "./createMenuTypeList";
+import createMealTypeList from "./createMealTypeList";
 
 //array with cuisines;
-const menuTypes = ["main course","side dish","dessert","appetizer","salad","bread","breakfast","soup","beverage","sauce","marinde","fingerfood","snack","drink"];
+const mealTypes = ["main course","side dish","dessert","appetizer","salad","bread","breakfast","soup","beverage","sauce","marinde","fingerfood","snack","drink","lunch","brunch"];
 
-createMenuTypeList(menuTypes);
+createMealTypeList(mealTypes);
 
 // reference save of user input
 let inputtimeR = document.getElementById('time-ready');
 let inputNumber = document.getElementById("numberMax");
-let inputMenuTypeString = '';
+let inputMealTypeString = '';
 
 // buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-fast');
 const buttonStart = document.getElementById("buttonStart");
 
-// buttonDisplay for nextPage display
-const buttonDisp = document.getElementById("button-place");
-let buttonTag = document.createElement("button");
-buttonTag.setAttribute("id", "buttonNext");
-buttonTag.textContent = "+";
-buttonDisp.appendChild(buttonTag);
 
 // initialize input search field value in message text.
 let inputSearching = "";
@@ -28,16 +22,26 @@ let inputSearching = "";
 formSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // put input of menutypes marked in string
+    // put input of mealtypes marked in string
     handleCheckbox();
 
     // keep input search field value in message text
     if (inputtimeR.value) {} else {inputtimeR.value = 45};
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
-        ${inputMenuTypeString}`;
+        ${inputMealTypeString}`;
     console.log(inputSearching);
+
      if (inputSearching > "") {
-        fetchFastRecipes(inputtimeR.value, inputNumber.value, inputMenuTypeString).then();
+
+         // buttonDisplay for nextPage display
+         let buttonDisp = document.getElementById("button-place");
+         buttonDisp.replaceChildren();
+         let buttonTag = document.createElement("button");
+         buttonTag.setAttribute("id", "buttonNext");
+         buttonTag.textContent = "+";
+         buttonDisp.appendChild(buttonTag);
+
+        fetchFastRecipes(inputtimeR.value, inputNumber.value, inputMealTypeString).then();
     }
 })
 
@@ -46,25 +50,25 @@ formSubmit.addEventListener("submit", (e) => {
 function handleCheckbox() {
 
     // If the checkbox is checked, display the output text
-    let selMenu = 0;
-    let selectMenu = [];
-    for (let i = 0; i < menuTypes.length; i++) {
+    let selMeal = 0;
+    let selectMeal = [];
+    for (let i = 0; i < mealTypes.length; i++) {
         // Get the checkbox
-        selMenu = `sel-menu-${i}`;
-        selectMenu[i] = document.getElementById(selMenu);
+        selMeal = `sel-meal-${i}`;
+        selectMeal[i] = document.getElementById(selMeal);
     }
 
-    const selectMenuF = selectMenu.filter((selMenuItem) => {
-        return (selMenuItem.checked === true);
+    const selectMealF = selectMeal.filter((selMealItem) => {
+        return (selMealItem.checked === true);
     });
 
     // initialize new search string
-    inputMenuTypeString = ","
+    inputMealTypeString = ","
 
     // fill searchstring with new input values
-    for (let i = 0; i < selectMenuF.length; i++) {
-        inputMenuTypeString += selectMenuF[i].value;
-        inputMenuTypeString += ",";
+    for (let i = 0; i < selectMealF.length; i++) {
+        inputMealTypeString += selectMealF[i].value;
+        inputMealTypeString += ",";
     }
 
 }

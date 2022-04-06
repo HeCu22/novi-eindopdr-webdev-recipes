@@ -19,13 +19,6 @@ let inputCuiString = '';
 const formSubmit = document.getElementById('on-submit-cuisine');
 const buttonStart = document.getElementById("buttonStart");
 
-// buttonDisplay for nextPage display
-const buttonDisp = document.getElementById("button-place");
-let buttonTag = document.createElement("button");
-buttonTag.setAttribute("id", "buttonNext");
-buttonTag.textContent = "+";
-buttonDisp.appendChild(buttonTag);
-
 // initialize input search field value in message text.
 let inputSearching = "";
 
@@ -40,7 +33,17 @@ formSubmit.addEventListener("submit", (e) => {
     inputSearching = `${inputAuthor.value} ${inputTags.value}  ${inputTitle.value} ${inputNumber.value}
         ${inputCuiString}`;
 
+
     if (inputSearching > "") {
+
+        // buttonDisplay for nextPage display
+        const buttonDisp = document.getElementById("button-place");
+        buttonDisp.replaceChildren();
+        let buttonTag = document.createElement("button");
+        buttonTag.setAttribute("id", "buttonNext");
+        buttonTag.textContent = "+";
+        buttonDisp.appendChild(buttonTag);
+
         fetchCuiRecipes(inputAuthor.value, inputTags.value, inputTitle.value, inputNumber.value, inputCuiString).then();
 
     }

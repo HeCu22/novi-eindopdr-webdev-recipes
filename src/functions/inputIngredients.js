@@ -7,12 +7,6 @@ let inputNumber = document.getElementById("numberMax");
 const formSubmit = document.getElementById('on-submit-ingredients');
 const buttonStart = document.getElementById("buttonStart");
 
-// buttonDisplay for nextPage display
-const buttonDisp = document.getElementById("button-place");
-let buttonTag = document.createElement("button");
-buttonTag.setAttribute("id", "buttonNext");
-buttonTag.textContent = "+";
-buttonDisp.appendChild(buttonTag);
 
 // initialize input search field value in message text.
 let inputSearching = "";
@@ -24,7 +18,17 @@ formSubmit.addEventListener("submit", (e) => {
     // keep input search field value in message text
     inputSearching = `${inputIngredients.value} ${inputNumber.value}`;
 
+
     if (inputSearching > "") {
+
+        // buttonDisplay for nextPage display
+        const buttonDisp = document.getElementById("button-place");
+        buttonDisp.replaceChildren();
+        let buttonTag = document.createElement("button");
+        buttonTag.setAttribute("id", "buttonNext");
+        buttonTag.textContent = "+";
+        buttonDisp.appendChild(buttonTag);
+
         fetchRecipeByIngredients(inputIngredients.value, inputNumber.value).then();
     }
 })
