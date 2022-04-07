@@ -543,6 +543,7 @@ async function fetchDetails(inputId) {
         let recSpan = document.createElement('span');
         recP.textContent = "Description:";
         recSpan.setAttribute('id', 'rec-description');
+        recSpan.textContent = detailsRecipe.data.description;
         //                 Create IMG element
         let recImg = document.createElement('img');
         recImg.setAttribute('id', 'rec-img');
@@ -582,6 +583,7 @@ async function fetchDetails(inputId) {
         recP4.appendChild(recSpan4);
         recDiv.appendChild(recP4);
         detailList.appendChild(recDiv);
+        document.getElementById('rec-item').scrollIntoView();
     } catch (e) {
         console.error(e);
     }

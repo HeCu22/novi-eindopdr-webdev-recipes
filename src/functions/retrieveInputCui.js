@@ -15,16 +15,9 @@ let inputTitle = document.getElementById('title');
 let inputNumber = document.getElementById("numberMax");
 let inputCuiString = '';
 
-
+// buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-cuisine');
 const buttonStart = document.getElementById("buttonStart");
-
-// buttonDisplay for nextPage display
-const buttonDisp = document.getElementById("button-place");
-let buttonTag = document.createElement("button");
-buttonTag.setAttribute("id", "buttonNext");
-buttonTag.textContent = "+";
-buttonDisp.appendChild(buttonTag);
 
 // initialize input search field value in message text.
 let inputSearching = "";
@@ -32,7 +25,6 @@ let inputSearching = "";
 // event listner user input
 formSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log('submit', e.target);
 
     // put input of cuisines marked in string
      handleCheckbox();
@@ -41,9 +33,17 @@ formSubmit.addEventListener("submit", (e) => {
     inputSearching = `${inputAuthor.value} ${inputTags.value}  ${inputTitle.value} ${inputNumber.value}
         ${inputCuiString}`;
 
+
     if (inputSearching > "") {
-        // if (inputNumber = 0) {inputNumber = 5 };
-        console.log('string', inputSearching);
+
+        // buttonDisplay for nextPage display
+        const buttonDisp = document.getElementById("button-place");
+        buttonDisp.replaceChildren();
+        let buttonTag = document.createElement("button");
+        buttonTag.setAttribute("id", "buttonNext");
+        buttonTag.textContent = "+";
+        buttonDisp.appendChild(buttonTag);
+
         fetchCuiRecipes(inputAuthor.value, inputTags.value, inputTitle.value, inputNumber.value, inputCuiString).then();
 
     }
@@ -52,10 +52,7 @@ formSubmit.addEventListener("submit", (e) => {
 
 function handleCheckbox() {
 
-
     // If the checkbox is checked, display the output text
-
-
     let selCui = 0;
     let selectCui = [];
     for (let i = 0; i < cuisineList.length; i++) {
@@ -67,11 +64,15 @@ function handleCheckbox() {
     const selectCuiF = selectCui.filter((selcuiItem) => {
         return (selcuiItem.checked === true);
     });
+
+    // initialize new search string
     inputCuiString = ","
+
+    // fill searchstring with new input values
     for (let i = 0; i < selectCuiF.length; i++) {
         inputCuiString += selectCuiF[i].value;
         inputCuiString += ",";
     }
-    console.log('inputcuistring', inputCuiString)
+
 
 }

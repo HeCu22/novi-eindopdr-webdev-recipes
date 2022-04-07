@@ -517,10 +517,10 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _fetchFastRecipes = require("./fetchFastRecipes");
 var _fetchFastRecipesDefault = parcelHelpers.interopDefault(_fetchFastRecipes);
-var _createMenuTypeList = require("./createMenuTypeList");
-var _createMenuTypeListDefault = parcelHelpers.interopDefault(_createMenuTypeList);
+var _createMealTypeList = require("./createMealTypeList");
+var _createMealTypeListDefault = parcelHelpers.interopDefault(_createMealTypeList);
 //array with cuisines;
-const menuTypes = [
+const mealTypes = [
     "main course",
     "side dish",
     "dessert",
@@ -534,72 +534,89 @@ const menuTypes = [
     "marinde",
     "fingerfood",
     "snack",
-    "drink"
+    "drink",
+    "lunch",
+    "brunch"
 ];
-_createMenuTypeListDefault.default(menuTypes);
+_createMealTypeListDefault.default(mealTypes);
 // reference save of user input
 let inputtimeR = document.getElementById('time-ready');
 let inputNumber = document.getElementById("numberMax");
-let inputMenuTypeString = '';
+let inputMealTypeString = '';
+// buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-fast');
-const button = document.getElementById("buttonStart");
-// buttonDisplay for nextPage display
-const buttonDisp = document.getElementById("button-place");
-let buttonTag = document.createElement("button");
-buttonTag.setAttribute("id", "buttonNext");
-buttonTag.textContent = "+";
-buttonDisp.appendChild(buttonTag);
+const buttonStart = document.getElementById("buttonStart");
 // initialize input search field value in message text.
 let inputSearching = "";
 // event listner user input
 formSubmit.addEventListener("submit", (e)=>{
     e.preventDefault();
-    // put input of menutypes marked in string
+    // put input of mealtypes marked in string
     handleCheckbox();
     // keep input search field value in message text
     if (inputtimeR.value) ;
     else inputtimeR.value = 45;
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
-        ${inputMenuTypeString}`;
-    if (inputSearching > "") _fetchFastRecipesDefault.default(inputtimeR.value, inputNumber.value, inputMenuTypeString).then();
+        ${inputMealTypeString}`;
+    console.log(inputSearching);
+    if (inputSearching > "") {
+        // buttonDisplay for nextPage display
+        let buttonDisp = document.getElementById("button-place");
+        buttonDisp.replaceChildren();
+        let buttonTag = document.createElement("button");
+        buttonTag.setAttribute("id", "buttonNext");
+        buttonTag.textContent = "+";
+        buttonDisp.appendChild(buttonTag);
+        _fetchFastRecipesDefault.default(inputtimeR.value, inputNumber.value, inputMealTypeString).then();
+    }
 });
 function handleCheckbox() {
     // If the checkbox is checked, display the output text
-    let selMenu = 0;
-    let selectMenu = [];
-    for(let i = 0; i < menuTypes.length; i++){
+    let selMeal = 0;
+    let selectMeal = [];
+    for(let i = 0; i < mealTypes.length; i++){
         // Get the checkbox
-        selMenu = `sel-menu-${i}`;
-        selectMenu[i] = document.getElementById(selMenu);
+        selMeal = `sel-meal-${i}`;
+        selectMeal[i] = document.getElementById(selMeal);
     }
-    const selectMenuF = selectMenu.filter((selMenuItem)=>{
-        return selMenuItem.checked === true;
+    const selectMealF = selectMeal.filter((selMealItem)=>{
+        return selMealItem.checked === true;
     });
-    for(let i1 = 0; i1 < selectMenuF.length; i1++){
-        inputMenuTypeString += selectMenuF[i1].value;
-        inputMenuTypeString += ",";
+    // initialize new search string
+    inputMealTypeString = ",";
+    // fill searchstring with new input values
+    for(let i1 = 0; i1 < selectMealF.length; i1++){
+        inputMealTypeString += selectMealF[i1].value;
+        inputMealTypeString += ",";
     }
 }
 
-},{"./fetchFastRecipes":"jzWc5","./createMenuTypeList":"c1Bm6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jzWc5":[function(require,module,exports) {
+},{"./fetchFastRecipes":"jzWc5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./createMealTypeList":"b2Uje"}],"jzWc5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _createListLines = require("./createListLines");
 var _createListLinesDefault = parcelHelpers.interopDefault(_createListLines);
+var _fetchDetails = require("./fetchDetails");
+var _fetchDetailsDefault = parcelHelpers.interopDefault(_fetchDetails);
 // intialize page message and number of lines on each page
 const messageText = document.getElementById("message-text");
 messageText.textContent = "";
 // set the number of lines on one page as constant
-const numberOfLines = 5;
-async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
+const pagenumberOfLines = 5;
+// variables used in handleradio
+let newPageSet = true;
+let selectRecipe = [];
+// function to fetch data and make a get request to spoonacular api
+async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
     try {
+        //  receive the fetched data in response
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
-                type: inputMenuTypeString,
+                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                type: inputMealTypeString,
                 maxReadyTime: inputtimeR,
                 number: inputNumber
             },
@@ -607,29 +624,50 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
                 "Content-Type": "application/json"
             }
         });
+        // save result constant
         const foundRecipes = response.data.results;
         const recipesLength = foundRecipes.length;
+        console.log('length', recipesLength);
         // create a list with maximum number of lines that uses array of all found
         let firstLine = 0;
-        let lastLine = numberOfLines;
+        let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+        // initialize first page
+        newPageSet = true;
         _createListLinesDefault.default(arrayDisplay);
-        // reset the userInput
         // listen to button id="buttonNext" to display next page
         const button = document.getElementById("buttonNext");
         button.addEventListener("click", (e)=>{
+            e.preventDefault();
             // check display next page possible
             if (lastLine < recipesLength) {
                 // add-up the slice cake and crate next page
-                firstLine += numberOfLines;
-                lastLine += numberOfLines;
+                firstLine += pagenumberOfLines;
+                lastLine += pagenumberOfLines;
                 arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+                // initialize first page
+                newPageSet = true;
                 _createListLinesDefault.default(arrayDisplay);
-            // reset the userInput
             } else {
                 let firstLine = 0;
-                let lastLine = numberOfLines;
+                let lastLine = pagenumberOfLines;
                 messageText.textContent = `For this input no data found.`;
+            }
+        });
+        // event listner select display detail
+        const formSubmitDetail = document.getElementById('recipe-list');
+        const buttonDetail = document.getElementById("buttonDetail");
+        formSubmitDetail.addEventListener("submit", (e)=>{
+            e.preventDefault();
+            // check which radiobutton filled
+            const selRec = handleradio();
+            // if radio button checked and data then fetch the details via id found in function handle radio
+            if (selRec) {
+                // new page actions are performed in handle radio
+                newPageSet = false;
+                _fetchDetailsDefault.default(selRec.value).then();
+                //     initialize selRec.checked after display, to make sure details are only once displayed
+                selRec.checked = false;
             }
         });
     } catch (e) {
@@ -638,9 +676,25 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMenuTypeString) {
         messageText.textContent = `For this input no data found.`;
     }
 }
+// If the checkbox is checked, display the output text
+function handleradio() {
+    if (newPageSet) {
+        let selRec = 0;
+        selectRecipe = [];
+        for(let i = 0; i < pagenumberOfLines; i++){
+            // Get the checkbox
+            selRec = `selRec${i}`;
+            selectRecipe[i] = document.getElementById(selRec);
+        }
+    }
+    const selectRecipeF = selectRecipe.find((selRecItem)=>{
+        if (selRecItem) return selRecItem.checked === true;
+    });
+    return selectRecipeF;
+}
 exports.default = fetchFastRecipes;
 
-},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a6p3L":[function(require,module,exports) {
+},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./fetchDetails":"bBbOH"}],"a6p3L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createListLines(recipes) {
@@ -721,44 +775,185 @@ function createListLines(recipes) {
         recipeList.appendChild(recipeLabel);
         recipeList.appendChild(recipeDivLine);
         recipeList.appendChild(recipeId);
+        document.getElementById('recipe-list').scrollIntoView();
         i++;
     });
     recipeList.appendChild(recipeButton);
 }
 exports.default = createListLines;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c1Bm6":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bBbOH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-function createMenuTypeList(menuTypes) {
-    const menuTypeList = document.getElementById('menu-type-list');
-    // Zorg ervoor dat na elke zoekopdracht en dat er altijd het gewenste zoekresultaat op de pagina staat;
-    menuTypeList.replaceChildren();
-    // one or more recipe lines are possible
-    // menuTypes.map((menuType) => {
-    /* ------------------------------------ */ //   use create element method to fill the DOM tree
-    /* ------------------------------------ */ let selMenu = "sel-menu-0";
-    for(let i = 0; i < menuTypes.length; i++){
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+// initialize help variable to determine the img src string
+let tempImg = "";
+async function fetchDetails(inputId) {
+    try {
+        const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
+            params: {
+                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                id: inputId
+            },
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        // get detail information from data
+        const detailList = document.getElementById("detail-list");
         // create container element for recipe line in div
-        let menuTypeLabel = document.createElement('label');
-        selMenu = `sel-menu-${i}`;
-        menuTypeLabel.setAttribute('for', selMenu);
-        // Create input element
-        let menuTypeInput = document.createElement('input');
-        menuTypeInput.setAttribute('type', 'checkbox');
-        menuTypeInput.setAttribute("id", selMenu);
-        menuTypeInput.setAttribute("value", `${menuTypes[i]}`);
-        menuTypeInput.setAttribute("text", `${menuTypes[i]}`);
-        // menuTypeLabel.textContent = `${menuTypes[i]}`;
-        // put elements in container input
-        menuTypeLabel.appendChild(menuTypeInput);
-        menuTypeInput.after(`${menuTypes[i]}`);
-        // put elements in container label
-        menuTypeList.appendChild(menuTypeLabel);
+        let recDiv = document.createElement('div');
+        recDiv.setAttribute('id', 'rec-item');
+        // create container element for recipe line in article
+        let recArt = document.createElement('article');
+        recArt.setAttribute('id', 'rec-art');
+        recArt.setAttribute('class', 'column');
+        // create h4 element with span for title
+        let recTitle = document.createElement('h4');
+        recTitle.setAttribute("class", "row");
+        recTitle.textContent = "Description:";
+        let recSpan = document.createElement('span');
+        recSpan.setAttribute('class', 'rec-description');
+        recSpan.textContent = detailsRecipe.data.title;
+        recTitle.appendChild(recSpan);
+        recArt.appendChild(recTitle);
+        //                 Create IMG element
+        let recImg = document.createElement('img');
+        recImg.setAttribute('id', 'rec-img');
+        tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
+        recImg.setAttribute('src', `${tempImg}`);
+        // put elements in container article
+        recArt.appendChild(recImg);
+        // put elements in container div
+        recDiv.appendChild(recArt);
+        // create container element for recipe line in article
+        recArt = document.createElement('article');
+        recArt.setAttribute('id', 'rec-art');
+        recArt.setAttribute('class', 'column');
+        // create div element for cooking-time and servings
+        // create h4 element with span for cooking-time
+        let recTime = document.createElement('h4');
+        recTime.setAttribute("class", "row");
+        recTime.textContent = "Cooking time:";
+        let recSpan1 = document.createElement('span');
+        recSpan1.setAttribute('class', 'rec-description');
+        recSpan1.textContent = detailsRecipe.data.readyInMinutes;
+        // put elements in container article
+        recTime.appendChild(recSpan1);
+        recArt.appendChild(recTime);
+        // create h4 element with span for servings
+        let recServ = document.createElement('h4');
+        recServ.setAttribute("class", "row");
+        recServ.textContent = "Servings:";
+        let recSpan2 = document.createElement('span');
+        recSpan2.setAttribute('class', 'rec-description');
+        recSpan2.textContent = detailsRecipe.data.servings;
+        // put elements in container article
+        recServ.appendChild(recSpan2);
+        recArt.appendChild(recServ);
+        // create h4 element with span for Author
+        let recAuth = document.createElement('h4');
+        recAuth.setAttribute("class", "row");
+        recAuth.textContent = "Author:";
+        let recAut1 = document.createElement('span');
+        recAut1.setAttribute('class', 'rec-description');
+        recAut1.textContent = detailsRecipe.data.author;
+        // put elements in container article
+        recAuth.appendChild(recAut1);
+        recArt.appendChild(recAuth);
+        // create element with span for ingredients
+        let recIngr = document.createElement('h4');
+        recIngr.textContent = "Ingredients:";
+        let recIngrUl = document.createElement('ul');
+        console.log('ingred', detailsRecipe.data, detailsRecipe.data.extendedIngredients.length, detailsRecipe.data.extendedIngredients);
+        let ingrediT = "";
+        for(let i = 0; i < detailsRecipe.data.extendedIngredients.length; i++){
+            let recIngrLi = document.createElement('li');
+            recIngrLi.setAttribute('class', 'rec-text');
+            ingrediT = detailsRecipe.data.extendedIngredients[i].original;
+            recIngrLi.textContent = ingrediT;
+            // put elements in container ul
+            recIngrUl.appendChild(recIngrLi);
+        }
+        // put elements in container article
+        recArt.appendChild(recIngr);
+        // put elements in container div
+        recDiv.appendChild(recArt);
+        recArt.appendChild(recIngrUl);
+        // put elements in container div
+        recDiv.appendChild(recArt);
+        // create container element for detail recipe item line in article
+        recArt = document.createElement('article');
+        recArt.setAttribute('id', 'rec-art');
+        recArt.setAttribute('class', 'column');
+        // create p element with span for instructions
+        let recInstr = document.createElement('h4');
+        recInstr.textContent = "Instructions:";
+        let recSpan3 = document.createElement('span');
+        recSpan3.setAttribute('class', 'rec-text');
+        recSpan3.innerHTML = detailsRecipe.data.instructions;
+        // put elements in container p
+        recInstr.appendChild(recSpan3);
+        // put elements in container article
+        recArt.appendChild(recInstr);
+        recDiv.appendChild(recArt);
+        // create container element for detail recipe item article
+        recArt = document.createElement('article');
+        recArt.setAttribute('id', 'rec-art');
+        recArt.setAttribute('class', 'column');
+        // create h4 element with span for summary
+        let recSumm = document.createElement('h4');
+        recSumm.textContent = "Summary:";
+        let recSum1 = document.createElement('span');
+        recSum1.setAttribute('class', 'rec-text');
+        recSum1.innerHTML = detailsRecipe.data.summary;
+        // put elements in container article
+        recSumm.appendChild(recSum1);
+        // put elements in container article
+        recArt.appendChild(recSumm);
+        recDiv.appendChild(recArt);
+        detailList.appendChild(recDiv);
+        document.getElementById('rec-item').scrollIntoView();
+    } catch (e) {
+        console.error(e);
     }
-    console.log(menuTypeList);
 }
-exports.default = createMenuTypeList;
+exports.default = fetchDetails;
+
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b2Uje":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function createMealTypeList(mealTypes) {
+    const mealTypeList = document.getElementById('meal-type-list');
+    // Zorg ervoor dat na elke zoekopdracht en dat er altijd het gewenste zoekresultaat op de pagina staat;
+    mealTypeList.replaceChildren();
+    // one or more recipe lines are possible
+    // mealTypes.map((mealType) => {
+    /* ------------------------------------ */ //   use create element method to fill the DOM tree
+    /* ------------------------------------ */ let selMeal = "sel-meal-0";
+    for(let i = 0; i < mealTypes.length; i++){
+        // create container element for recipe line in div
+        let mealTypeLabel = document.createElement('label');
+        selMeal = `sel-meal-${i}`;
+        mealTypeLabel.setAttribute('for', selMeal);
+        // Create input element
+        let mealTypeInput = document.createElement('input');
+        mealTypeInput.setAttribute('type', 'checkbox');
+        mealTypeInput.setAttribute("id", selMeal);
+        mealTypeInput.setAttribute("value", `${mealTypes[i]}`);
+        mealTypeInput.setAttribute("text", `${mealTypes[i]}`);
+        // mealTypeLabel.textContent = `${mealTypes[i]}`;
+        // put elements in container input
+        mealTypeLabel.appendChild(mealTypeInput);
+        mealTypeInput.after(`${mealTypes[i]}`);
+        // put elements in container label
+        mealTypeList.appendChild(mealTypeLabel);
+    }
+    console.log(mealTypeList);
+}
+exports.default = createMealTypeList;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["7kRcU","67Uri"], "67Uri", "parcelRequiree541")
 
