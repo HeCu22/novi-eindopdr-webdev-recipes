@@ -19,8 +19,8 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 cuisine: inputCuisine,
                 author: inputAuthor,
                 tags: inputTags,
@@ -33,10 +33,9 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         });
 
         // save result constant
+
         const {results: foundRecipes} = response.data;
         const recipesLength = foundRecipes.length;
-
-
         // create a list with maximum number of lines that uses array of all found
         let firstLine = 0;
         let lastLine = pagenumberOfLines;
@@ -50,6 +49,7 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         inputAuthor.value = '';
         inputTags.value = '';
         inputTitle.value = '';
+        console.log('ik ben hier');
 
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");

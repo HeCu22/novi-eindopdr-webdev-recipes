@@ -623,8 +623,8 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         //  receive the fetched data in response
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 cuisine: inputCuisine,
                 author: inputAuthor,
                 tags: inputTags,
@@ -649,6 +649,7 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         inputAuthor.value = '';
         inputTags.value = '';
         inputTitle.value = '';
+        console.log('ik ben hier');
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");
         buttonNext.addEventListener("click", (e)=>{
@@ -713,7 +714,7 @@ function handleradio() {
 }
 exports.default = fetchCuiRecipes;
 
-},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./fetchDetails":"bBbOH"}],"jo6P5":[function(require,module,exports) {
+},{"axios":"jo6P5","./createListLines":"a6p3L","./fetchDetails":"bBbOH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
