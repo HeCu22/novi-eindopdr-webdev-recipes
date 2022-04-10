@@ -591,7 +591,7 @@ function handleCheckbox() {
     }
 }
 
-},{"./fetchFastRecipes":"jzWc5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./createMealTypeList":"b2Uje"}],"jzWc5":[function(require,module,exports) {
+},{"./fetchFastRecipes":"jzWc5","./createMealTypeList":"b2Uje","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jzWc5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
@@ -694,7 +694,7 @@ function handleradio() {
 }
 exports.default = fetchFastRecipes;
 
-},{"axios":"jo6P5","./createListLines":"a6p3L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./fetchDetails":"bBbOH"}],"a6p3L":[function(require,module,exports) {
+},{"axios":"jo6P5","./createListLines":"a6p3L","./fetchDetails":"bBbOH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a6p3L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function createListLines(recipes) {
