@@ -46,6 +46,10 @@ ul {
   margin-top: 5px;
 }
 
+.high-light {
+  font-weight: bold;
+}
+
 .top {
   flex-direction: column;
   justify-content: center;
@@ -107,6 +111,10 @@ ul {
 ::placeholder {
   color: #db7093;
   font-weight: lighter;
+}
+
+#sub-header {
+  text-align: center;
 }
 
 #sel-container {

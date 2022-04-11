@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles.css">
-    <title>Creative new or special Cuisine recipes</title>
+    <title>Menu Quick & Easy Recipes</title>
 </head>
-<body>
+<body id="body">
 <header id="head-section" class="top">
     <nav class="navbar">
         <a href="../index.html" target="_self"> <img class="icon-img32" src="../assets/icon-home.png" alt="Back"/> </a>
-        <a href="#on-submit-fast" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back"/>
-        </a>
+        <a href="#body" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back to Menu"/> </a>
         <img id="head-img" src="../assets/logo%20img%20background.png" alt="logo-vegetables"/>
         <a href="#recipe-list" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
                                                     alt="find recipe"/> </a>
@@ -31,7 +30,12 @@
                 <div id="meal-type-list" class="column">
                     [meal-type-list];
                 </div>
+                <label for="diet" class="high-light">
+                    <input type="checkbox" id="diet" name="diet" text="diet" value="Whole 30"/>
+                    Whole 30
+                </label>
             </div>
+            <p class="blankline"></p>
             <timeready class="row">
                 <h4>Max ready time:</h4>
                 <label for="time-ready">
@@ -60,7 +64,7 @@
     <div id="button-place"></div>
 </section>
 <section id="detail-container" class="column">
-    <ul id="detail-list">......details of recipe...</ul>
+    <div id="detail-list">......details of recipe...</div>
 
 </section>
 <script src="../main.js" type="module"></script>

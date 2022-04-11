@@ -26,6 +26,7 @@ function createListLines(recipes) {
     const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
+    const inputDiet = document.getElementById('diet');
 
     let selRec = "selRec-0";
     let i = 0;
@@ -75,6 +76,8 @@ function createListLines(recipes) {
         let recipeImg = document.createElement('img');
         recipeImg.setAttribute('class', 'img-p');
         recipeImg.setAttribute('src', `${recipe.image}`);
+        recipeImg.setAttribute('alt', "recipeImage");
+
 
         // create container element for recipe line in div
         let recipeDivText = document.createElement('div');

@@ -8,8 +8,8 @@ async function fetchDetails(inputId) {
     try {
         const detailsRecipe = await axios.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
 
             },
@@ -18,15 +18,15 @@ async function fetchDetails(inputId) {
             }
         });
 
-  // get detail information from data
-       const detailList = document.getElementById("detail-list")
+        // get detail information from data
+        const detailList = document.getElementById("detail-list")
 
 
 // create container element for recipe line in div
         let recDiv = document.createElement('div');
         recDiv.setAttribute('id', 'rec-item');
 
-     // create container element for recipe line in article
+        // create container element for recipe line in article
         let recArt = document.createElement('article');
         recArt.setAttribute('id', 'rec-art');
         recArt.setAttribute('class', 'column');
@@ -47,6 +47,7 @@ async function fetchDetails(inputId) {
 
         tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
         recImg.setAttribute('src', `${tempImg}`);
+        recImg.setAttribute('alt', `recipeImage`);
 
         // put elements in container article
         recArt.appendChild(recImg);
@@ -54,7 +55,7 @@ async function fetchDetails(inputId) {
         recDiv.appendChild(recArt);
 
 
-   // create container element for recipe line in article
+        // create container element for recipe line in article
         recArt = document.createElement('article');
         recArt.setAttribute('id', 'rec-art');
         recArt.setAttribute('class', 'column');
@@ -104,10 +105,8 @@ async function fetchDetails(inputId) {
         recIngr.textContent = "Ingredients:";
         let recIngrUl = document.createElement('ul');
 
-        console.log('ingred', detailsRecipe.data, detailsRecipe.data.extendedIngredients.length, detailsRecipe.data.extendedIngredients)
         let ingrediT = "";
-        for (let i = 0; i < detailsRecipe.data.extendedIngredients.length; i++)
-        {
+        for (let i = 0; i < detailsRecipe.data.extendedIngredients.length; i++) {
             let recIngrLi = document.createElement('li');
             recIngrLi.setAttribute('class', 'rec-text');
             ingrediT = detailsRecipe.data.extendedIngredients[i].original;
@@ -163,16 +162,9 @@ async function fetchDetails(inputId) {
         recDiv.appendChild(recArt);
 
 
-
-
-
-
-
         detailList.appendChild(recDiv)
 
         document.getElementById('rec-item').scrollIntoView();
-
-
 
 
     } catch (e) {

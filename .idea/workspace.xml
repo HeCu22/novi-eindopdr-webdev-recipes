@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="145bc36c-1e1f-4f21-b000-8c9881592877" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/0573adff3ef1527d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/18f824fa3d70287b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/22829862c8608219" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/28b12e046f5fd47d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/375db47f9c66749d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/437d3d7c927f1bf9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/44bd6430a7f41d97" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/5f7cb051b3a92e2b" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/66f194b2dbaed44b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.parcel-cache/69ca9805ac7a3bf8" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/82d18a4721c399ec.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/9fa21b52a537fb38" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/aa27ab77ec58dbdb" beforeDir="false" />
@@ -19,16 +15,13 @@
       <change beforePath="$PROJECT_DIR$/.parcel-cache/b18ab24527da5aa4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/c9ca7c60f0c3b779" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/data.mdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/dc8aa0e125e85e62" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/dd495f47d7cb1871" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/e06668467d39728c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/eb8a71f2f209a983" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/f380c05d89e0cad2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/lock.mdb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/cuisine.24be9d48.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/fridge.8534621f.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/healthy.b16ca0d8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-back.03417852.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/icon-home.c09aba78.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/icon-menu.c482da66.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/icon-search.676f7a10.png" beforeDir="false" />
@@ -37,23 +30,29 @@
       <change beforePath="$PROJECT_DIR$/dist/index.4d663569.css.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/logo img background.f87983e3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.4d6bcbeb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.4d6bcbeb.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/recipeDetail.58ef934f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/recipeDetail.58ef934f.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/recipeDetail.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/quick-meal.4621fb1f.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/createListLines.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/createListLines.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/createMealTypeList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/createMealTypeList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/inputFastEasy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/inputFastEasy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/healthyIngredients.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/healthyIngredients.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/menuCuisine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/menuCuisine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/menuFastEasy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/menuFastEasy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +71,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -90,6 +90,9 @@
       <workItem from="1649603487285" duration="126000" />
       <workItem from="1649603648481" duration="80000" />
       <workItem from="1649604319606" duration="84000" />
+      <workItem from="1649608714102" duration="57000" />
+      <workItem from="1649610519585" duration="3214000" />
+      <workItem from="1649659706337" duration="13385000" />
     </task>
     <servers />
   </component>

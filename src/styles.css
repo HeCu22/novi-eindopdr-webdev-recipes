@@ -54,6 +54,11 @@ ul {
     margin-top: 5px;
 }
 
+.high-light {
+    font-weight: bold;
+    }
+
+
 /*---------------------------*/
 .top {
     display: flex;
@@ -120,11 +125,15 @@ ul {
 
 }
 
+
 ::placeholder {
     font-weight: lighter;
     color: palevioletred;
 }
 
+#sub-header {
+    text-align: center;
+}
 
 #sel-container {
     max-width: 900px;
@@ -216,6 +225,8 @@ ul {
     padding: 2px;
 
 }
+
+
 
 #buttonStart {
     background-color: orange;

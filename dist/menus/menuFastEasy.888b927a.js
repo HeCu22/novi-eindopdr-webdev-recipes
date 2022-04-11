@@ -543,21 +543,23 @@ _createMealTypeListDefault.default(mealTypes);
 let inputtimeR = document.getElementById('time-ready');
 let inputNumber = document.getElementById("numberMax");
 let inputMealTypeString = '';
+let inputDietString = "";
+let inputDiet = document.getElementById("diet");
+// initialize input search field value in message text.
+let inputSearching = "";
 // buttonStart for start (new) search
 const formSubmit = document.getElementById('on-submit-fast');
 const buttonStart = document.getElementById("buttonStart");
-// initialize input search field value in message text.
-let inputSearching = "";
 // event listner user input
 formSubmit.addEventListener("submit", (e)=>{
     e.preventDefault();
-    // put input of mealtypes marked in string
+    // put input of meal types marked in string
     handleCheckbox();
     // keep input search field value in message text
     if (inputtimeR.value) ;
     else inputtimeR.value = 45;
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
-        ${inputMealTypeString}`;
+        ${inputMealTypeString} ${inputDietString}`;
     console.log(inputSearching);
     if (inputSearching > "") {
         // buttonDisplay for nextPage display
@@ -567,7 +569,7 @@ formSubmit.addEventListener("submit", (e)=>{
         buttonTag.setAttribute("id", "buttonNext");
         buttonTag.textContent = "+";
         buttonDisp.appendChild(buttonTag);
-        _fetchFastRecipesDefault.default(inputtimeR.value, inputNumber.value, inputMealTypeString).then();
+        _fetchFastRecipesDefault.default(inputtimeR.value, inputNumber.value, inputDietString, inputMealTypeString).then();
     }
 });
 function handleCheckbox() {
@@ -579,6 +581,7 @@ function handleCheckbox() {
         selMeal = `sel-meal-${i}`;
         selectMeal[i] = document.getElementById(selMeal);
     }
+    // check meal-type options selected
     const selectMealF = selectMeal.filter((selMealItem)=>{
         return selMealItem.checked === true;
     });
@@ -589,6 +592,9 @@ function handleCheckbox() {
         inputMealTypeString += selectMealF[i1].value;
         inputMealTypeString += ",";
     }
+    // put input of diet option in string
+    if (inputDiet.checked) inputDietString = inputDiet.value;
+    else inputDietString = "";
 }
 
 },{"./fetchFastRecipes":"jzWc5","./createMealTypeList":"b2Uje","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jzWc5":[function(require,module,exports) {
@@ -609,14 +615,15 @@ const pagenumberOfLines = 5;
 let newPageSet = true;
 let selectRecipe = [];
 // function to fetch data and make a get request to spoonacular api
-async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
+async function fetchFastRecipes(inputtimeR, inputNumber, inputDiet, inputMealTypeString) {
     try {
         //  receive the fetched data in response
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // piKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 type: inputMealTypeString,
+                diet: inputDiet,
                 maxReadyTime: inputtimeR,
                 number: inputNumber
             },
@@ -635,6 +642,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
         // initialize first page
         newPageSet = true;
         _createListLinesDefault.default(arrayDisplay);
+        // reset the userInput
+        inputDiet.value = '';
         // listen to button id="buttonNext" to display next page
         const button = document.getElementById("buttonNext");
         button.addEventListener("click", (e)=>{
@@ -648,6 +657,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
                 // initialize first page
                 newPageSet = true;
                 _createListLinesDefault.default(arrayDisplay);
+                // reset the userInput
+                inputDiet.value = '';
             } else {
                 let firstLine = 0;
                 let lastLine = pagenumberOfLines;
@@ -713,6 +724,7 @@ function createListLines(recipes) {
     const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
+    const inputDiet = document.getElementById('diet');
     let selRec = "selRec-0";
     let i = 0;
     let recipeButton = document.createElement('button');
@@ -744,6 +756,7 @@ function createListLines(recipes) {
         let recipeImg = document.createElement('img');
         recipeImg.setAttribute('class', 'img-p');
         recipeImg.setAttribute('src', `${recipe.image}`);
+        recipeImg.setAttribute('alt', "recipeImage");
         // create container element for recipe line in div
         let recipeDivText = document.createElement('div');
         recipeDivText.setAttribute('class', 'column');
@@ -793,8 +806,8 @@ async function fetchDetails(inputId) {
     try {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {
@@ -824,6 +837,7 @@ async function fetchDetails(inputId) {
         recImg.setAttribute('id', 'rec-img');
         tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
         recImg.setAttribute('src', `${tempImg}`);
+        recImg.setAttribute('alt', `recipeImage`);
         // put elements in container article
         recArt.appendChild(recImg);
         // put elements in container div
@@ -867,7 +881,6 @@ async function fetchDetails(inputId) {
         let recIngr = document.createElement('h4');
         recIngr.textContent = "Ingredients:";
         let recIngrUl = document.createElement('ul');
-        console.log('ingred', detailsRecipe.data, detailsRecipe.data.extendedIngredients.length, detailsRecipe.data.extendedIngredients);
         let ingrediT = "";
         for(let i = 0; i < detailsRecipe.data.extendedIngredients.length; i++){
             let recIngrLi = document.createElement('li');

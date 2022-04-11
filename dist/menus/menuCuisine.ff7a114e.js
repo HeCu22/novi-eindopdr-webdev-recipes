@@ -619,6 +619,7 @@ let newPageSet = true;
 let selectRecipe = [];
 // function to fetch data and make a get request to spoonacular api
 async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, inputCuisine) {
+    console.log('ik ben hier');
     try {
         //  receive the fetched data in response
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
@@ -642,6 +643,7 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         let firstLine = 0;
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+        console.log('array', arrayDisplay);
         // initialize first page
         newPageSet = true;
         _createListLinesDefault.default(arrayDisplay);
@@ -649,7 +651,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         inputAuthor.value = '';
         inputTags.value = '';
         inputTitle.value = '';
-        console.log('ik ben hier');
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");
         buttonNext.addEventListener("click", (e)=>{
@@ -2274,6 +2275,7 @@ function createListLines(recipes) {
     const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
+    const inputDiet = document.getElementById('diet');
     let selRec = "selRec-0";
     let i = 0;
     let recipeButton = document.createElement('button');
@@ -2305,6 +2307,7 @@ function createListLines(recipes) {
         let recipeImg = document.createElement('img');
         recipeImg.setAttribute('class', 'img-p');
         recipeImg.setAttribute('src', `${recipe.image}`);
+        recipeImg.setAttribute('alt', "recipeImage");
         // create container element for recipe line in div
         let recipeDivText = document.createElement('div');
         recipeDivText.setAttribute('class', 'column');
@@ -2384,8 +2387,8 @@ async function fetchDetails(inputId) {
     try {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {
@@ -2415,6 +2418,7 @@ async function fetchDetails(inputId) {
         recImg.setAttribute('id', 'rec-img');
         tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
         recImg.setAttribute('src', `${tempImg}`);
+        recImg.setAttribute('alt', `recipeImage`);
         // put elements in container article
         recArt.appendChild(recImg);
         // put elements in container div
@@ -2458,7 +2462,6 @@ async function fetchDetails(inputId) {
         let recIngr = document.createElement('h4');
         recIngr.textContent = "Ingredients:";
         let recIngrUl = document.createElement('ul');
-        console.log('ingred', detailsRecipe.data, detailsRecipe.data.extendedIngredients.length, detailsRecipe.data.extendedIngredients);
         let ingrediT = "";
         for(let i = 0; i < detailsRecipe.data.extendedIngredients.length; i++){
             let recIngrLi = document.createElement('li');
