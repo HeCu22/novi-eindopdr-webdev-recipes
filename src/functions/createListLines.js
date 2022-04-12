@@ -31,12 +31,15 @@ function createListLines(recipes) {
     let selRec = "selRec-0";
     let i = 0;
 
+    let buttonDetail = document.getElementById("button-place-detail");
+    buttonDetail.replaceChildren()
     let recipeButton = document.createElement('button');
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
     recipeButton.setAttribute("name",'buttonDetail');
     recipeButton.textContent = "Details";
+    buttonDetail.appendChild(recipeButton);
 
 
     // one or more recipe lines are possible
@@ -125,7 +128,7 @@ function createListLines(recipes) {
 
     });
 
-    recipeList.appendChild(recipeButton);
+
 
 
 }

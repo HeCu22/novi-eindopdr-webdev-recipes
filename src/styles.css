@@ -250,8 +250,8 @@ ul {
     height: 30px;
     margin: 5px;
     position: relative;
-    top: -10px;
-    left: 300px;
+    bottom: 550px;
+    left: 280px;
 }
 
 #buttonNext {
@@ -264,7 +264,7 @@ ul {
     height: 32px;
     margin: 5px;
     position: relative;
-    bottom: 100px;
+    top: 500px;
     left: 350px;
 }
 
@@ -349,6 +349,11 @@ label {
         bottom: 100px;
         left: 500px;
 
+    }
+
+    #buttonDetail {
+        bottom: 700px;
+        left: 430px;
     }
 
     #rec-item {

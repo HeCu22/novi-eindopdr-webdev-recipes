@@ -99,6 +99,17 @@ async function fetchDetails(inputId) {
         recAuth.appendChild(recAut1);
         recArt.appendChild(recAuth);
 
+        // create h4 element with span for health score
+        let recHealthScore = document.createElement('h4');
+        recHealthScore.setAttribute("class", "row")
+        recHealthScore.textContent = "Health score:";
+
+        let recHealthScore1 = document.createElement('span');
+        recHealthScore1.setAttribute('class', 'rec-description');
+        recHealthScore1.textContent = detailsRecipe.data.healthScore;
+        // put elements in container article
+        recHealthScore.appendChild(recHealthScore1);
+        recArt.appendChild(recHealthScore);
 
         // create element with span for ingredients
         let recIngr = document.createElement('h4');

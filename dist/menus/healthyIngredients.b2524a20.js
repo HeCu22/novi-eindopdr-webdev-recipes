@@ -670,12 +670,15 @@ function createListLines(recipes) {
     const inputDiet = document.getElementById('diet');
     let selRec = "selRec-0";
     let i = 0;
+    let buttonDetail = document.getElementById("button-place-detail");
+    buttonDetail.replaceChildren();
     let recipeButton = document.createElement('button');
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
     recipeButton.setAttribute("name", 'buttonDetail');
     recipeButton.textContent = "Details";
+    buttonDetail.appendChild(recipeButton);
     // one or more recipe lines are possible
     recipes.map((recipe, number)=>{
         /* ------------------------------------ */ //   use create element method to fill the DOM tree
@@ -734,7 +737,6 @@ function createListLines(recipes) {
         document.getElementById('recipe-list').scrollIntoView();
         i++;
     });
-    recipeList.appendChild(recipeButton);
 }
 exports.default = createListLines;
 
@@ -820,6 +822,16 @@ async function fetchDetails(inputId) {
         // put elements in container article
         recAuth.appendChild(recAut1);
         recArt.appendChild(recAuth);
+        // create h4 element with span for health score
+        let recHealthScore = document.createElement('h4');
+        recHealthScore.setAttribute("class", "row");
+        recHealthScore.textContent = "Health score:";
+        let recHealthScore1 = document.createElement('span');
+        recHealthScore1.setAttribute('class', 'rec-description');
+        recHealthScore1.textContent = detailsRecipe.data.healthScore;
+        // put elements in container article
+        recHealthScore.appendChild(recHealthScore1);
+        recArt.appendChild(recHealthScore);
         // create element with span for ingredients
         let recIngr = document.createElement('h4');
         recIngr.textContent = "Ingredients:";
