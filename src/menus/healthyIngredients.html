@@ -35,7 +35,7 @@
                 <div>
                     <label for="ingredients" class="column">
                         <p id="ingr-text">
-                         ..enter a comma-separated list of ingredients..</p>
+                            ..enter a comma-separated list of ingredients..</p>
                         <input type="text" id="ingredients" name="ingredients" value="" placeholder="lettuce,tomato"/>
                     </label>
                 </div>
@@ -49,23 +49,22 @@
                     <input type="number" id="numberMax" value="15" name="numberMax"/>
                 </label>
             </div>
-
-            <button type="submit" form="on-submit-ingredients" id="buttonStart">Start</button>
         </form>
-
     </section>
+</section>
+<section id="buttons">
+    <button type="submit" form="on-submit-ingredients" id="buttonStart">Start</button>
+    <div id="button-place-detail"></div>
+    <div id="button-place-next"></div>
 </section>
 <section id="list-container" class="column">
     <div id="message-text">Select some options to search recipes and click on search button</div>
-    <div id="button-place"></div>
     <form id="recipe-list">Recipes will be listed here after your selection...</form>
     </form>
-
 </section>
 <div id="message"></div>
 <section id="detail-container" class="column">
-    <div id="button-place-detail"></div>
-    <div id="detail-list">......details of recipe...</div>
+     <div id="detail-list">......details of recipe...</div>
 </section>
 <script src="../main.js" type="module"></script>
 <script src="../functions/inputIngredients.js" type="module"></script>

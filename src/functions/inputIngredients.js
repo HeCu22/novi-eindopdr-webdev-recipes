@@ -22,7 +22,7 @@ formSubmit.addEventListener("submit", (e) => {
     if (inputSearching > "") {
 
         // buttonDisplay for nextPage display
-        const buttonDisp = document.getElementById("button-place");
+        const buttonDisp = document.getElementById("button-place-next");
         buttonDisp.replaceChildren();
         let buttonTag = document.createElement("button");
         buttonTag.setAttribute("id", "buttonNext");

@@ -20,7 +20,7 @@
 
 <section id="sel-container" class="column">
 
-    <section id="sel-style" class="row">
+    <div id="sel-style" class="row">
         <img class="icon-img" src="../assets/quick-meal.jpg" alt="quick-meal"/>
         <form id="on-submit-fast" class="column">
             <div id="mealoptions" class="column, sel-men">
@@ -36,13 +36,13 @@
                 </label>
             </div>
             <p class="blankline"></p>
-            <timeready class="row">
+            <div id="timeready" class="row">
                 <h4>Max ready time:</h4>
                 <label for="time-ready">
                     <input type="number" id="time-ready" name="time-ready" value="30"/>
                 </label>
 
-            </timeready>
+            </div>
             <p class="blankline"></p>
             <div id="sel-number" class="row">
                 <h4>Maximum number of recipes to present:</h4>
@@ -50,24 +50,26 @@
                     <input type="number" id="numberMax" value="15" name="numberMax"/>
                 </label>
             </div>
-
-            <button id="buttonStart" type="submit" form="on-submit-fast" name="buttonStart"> Start</button>
         </form>
+    </div>
+</section>
 
-    </section>
+<section id="buttons">
+    <button id="buttonStart" type="submit" form="on-submit-fast" name="buttonStart"> Start</button>
+    <div id="button-place-next"></div>
+    <div id="button-place-detail"></div>
 </section>
 
 <section id="list-container" class="column">
     <div id="message-text">Select some options to search recipes and click on search button</div>
-    <div id="button-place"></div>
+
     <form id="recipe-list">Recipes will be listed here after your selection...</form>
-
 </section>
+
 <section id="detail-container" class="column">
-    <div id="button-place-detail"></div>
     <div id="detail-list">......details of recipe...</div>
-
 </section>
+
 <script src="../main.js" type="module"></script>
 <script src="../functions/inputFastEasy.js" type="module"></script>
 </body>

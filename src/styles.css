@@ -138,7 +138,7 @@ ul {
 #sel-container {
     max-width: 900px;
     margin-left: 50px;
-    padding: 50px;
+    padding: 50px 50px 0 50px;
     text-align: left;
 
 }
@@ -156,7 +156,7 @@ ul {
 
 #list-container {
     max-width: 900px;
-    margin: 50px;
+    margin: 0 50px 50px 50px;
     justify-content: center;
     align-items: flex-start;
 }
@@ -226,7 +226,8 @@ ul {
 
 }
 
-
+#buttons {
+    }
 
 #buttonStart {
     background-color: orange;
@@ -237,8 +238,8 @@ ul {
     height: 30px;
     margin: 5px;
     position: relative;
-    top: 10px;
-    left: 100px;
+    top: 5px;
+    left: 350px;
 }
 
 #buttonDetail {
@@ -250,8 +251,8 @@ ul {
     height: 30px;
     margin: 5px;
     position: relative;
-    bottom: 550px;
-    left: 280px;
+    top: 350px;
+    left: 350px;
 }
 
 #buttonNext {
@@ -352,8 +353,12 @@ label {
     }
 
     #buttonDetail {
-        bottom: 700px;
-        left: 430px;
+        top: 300px;
+        left: 500px;
+    }
+    #buttonStart {
+        top: 50px;
+        left: 500px;
     }
 
     #rec-item {
