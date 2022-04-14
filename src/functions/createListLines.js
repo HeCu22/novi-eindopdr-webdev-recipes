@@ -1,7 +1,5 @@
 function createListLines(recipes) {
 
-
-
     const recipeList = document.getElementById('recipe-list');
 
     // intialize page message and number of lines on each page
@@ -16,8 +14,7 @@ function createListLines(recipes) {
     if (recipes.length < numberOfLines) {
         messageText.textContent = `Last data found. Press Start to go to first page.`;
     } else {
-        messageText.textContent = ` `;
-        `Searching for recipes with input specified`;
+        messageText.textContent = `Searching for recipes with input specified`;
     }
 
     // reference save of user input
@@ -96,7 +93,7 @@ function createListLines(recipes) {
         const recipeExtra = document.createElement('p');
         if (inputIngredients) {
             //  fill extra elemenent
-            let extra = "Ingredients:";
+            let extra = "Ingredients: ";
             recipe.usedIngredients.map((ingredient) => {
                 extra += ingredient.name;
             });
@@ -107,6 +104,7 @@ function createListLines(recipes) {
         const recipeId = document.createElement("p");
 
         recipeId.textContent = recipe.id;
+        recipeId.setAttribute('class', 'hidden');
 
         // put elements in container div
         recipeDivLine.appendChild(recipeImg);

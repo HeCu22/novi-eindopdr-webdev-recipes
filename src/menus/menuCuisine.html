@@ -8,10 +8,12 @@
 <body id="body">
 <header id="head-section" class="top">
     <nav class="navbar">
-        <a href="../index.html" target="_self"> <img class="icon-img32" src="../assets/icon-home.png" alt="Home"/> </a>
-        <a href="#body" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Back to Menu"/> </a>
+        <a href="../index.html" target="_self"> <img class="icon-img32" src="../assets/icon-menu.png" alt="Home"/> </a>
+        <a href="#recipe-list" target="_self"> <img class="icon-img32" src="../assets/icon-chevron-left.png" alt="Back to Menu"/> </a>
         <img id="head-img" src="../assets/logo%20img%20background.png" alt="logo-vegetables"/>
-        <a href="#recipe-list"> <img class="icon-img32" src="../assets/icon-search.png" alt="Search recipe"/> </a>
+        <a href="#body" target="_self"> <img class="icon-img32" src="../assets/icon-chevron-up.png" alt="Back to top"/></a>
+        <a href="../menus/healthyIngredients.html" target="_self"> <img class="icon-img32" src="../assets/icon-search.png"
+                                                                 alt="find recipe"/> </a>
     </nav>
     <h1>Recipes for home-style cookin'</h1>
 
@@ -58,18 +60,29 @@
         </form>
     </article>
 </section>
+
 <section id="butttons">
     <button id="buttonStart" type="submit" form="on-submit-cuisine" name="buttonStart"> Start</button>
     <div id="button-place-next"></div>
     <div id="button-place-detail"></div>
 </section>
+
 <section id="list-container" class="column">
     <div id="message-text">Select some options to search recipes and click on search button</div>
-    <form id="recipe-list">Recipes will be listed here after your selection...</form>
+    <form id="recipe-list">Recipes will be listed here after your selection...
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </form>
 </section>
+
 <section id="detail-container" class="column">
-    <div id="detail-list">......details of recipe...</div>
+    <div id="detail-header"> Details of recipes selected....</div>
+    <div id="detail-list">  <img class="icon-img32" src="../assets/cuisine.jpg" alt="cuisine"/> </div>
 </section>
+
 <script src="../functions/retrieveInputCui.js" type="module"></script>
 </body>
 </html>

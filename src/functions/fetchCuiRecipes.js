@@ -15,7 +15,7 @@ let selectRecipe = [];
 
 // function to fetch data and make a get request to spoonacular api
 async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, inputCuisine) {
-    console.log('ik ben hier');
+
     try {
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
@@ -41,7 +41,7 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         let firstLine = 0;
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-        console.log('array',arrayDisplay);
+
         // initialize first page
         newPageSet = true;
 

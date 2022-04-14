@@ -18,6 +18,7 @@ h4 {
     font-size: 14px;
     margin: 0;
     padding: 0;
+    gap: 3px;
 }
 
 body {
@@ -58,6 +59,11 @@ ul {
     font-weight: bold;
     }
 
+.hidden {
+    display: none;
+
+}
+
 
 /*---------------------------*/
 .top {
@@ -97,8 +103,10 @@ ul {
 
 .icon-img32 {
     width: 50px;
-    padding: 5px;
-    margin: 5px;;
+    /*padding: 5px;*/
+    margin: 5px;
+    border: solid 1px lightblue;
+    border-radius: 10%;
 }
 
 .blankline {
@@ -111,13 +119,14 @@ ul {
     margin: 5px;
     padding: 5px;
     font-size: medium;
-
 }
 
 .img-p {
-    width: 50px;
+    width: 20%;
     border-radius: 10%;
 }
+
+
 
 .recipe-line {
     display: flex;
@@ -270,11 +279,9 @@ ul {
 }
 
 
-#recipe-list {
-}
-
-#recipe-list img {
-    width: 20%
+#recipe-list li {
+    list-style: square;
+    margin-left: 25px;
 }
 
 #detail-list {
@@ -289,34 +296,37 @@ ul {
     justify-content: flex-start;
     gap: 10px;
     margin: 10px;
+
 }
 
-#rec-art {
+.rec-art {
     /* item mag groeien */
-
     flex-grow: 1;
     /* item mag niet kleiner worden dan de basis*/
     gap: 10px;
     flex-shrink: 0;
     flex-basis: 250px;
+    padding: 8px;
+    border: solid 1px slateblue;
+    border-left: none;
+    border-radius: 10px;
+
 }
 
-#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr, span {
-    /*font-size: small;*/
-    /*display: block;*/
+#rec-description, span {
     max-width: 700px;
-    /*padding: 5px;*/
-
 }
 
 #rec-img {
     max-width: 430px;
     border-radius: 10%;
+    padding: 5px;
 }
 
 .rec-description {
     font-family: 'Merriweather', Georgia, serif;
     font-size: 16px;
+    color: slateblue;
 }
 
 .rec-text {
@@ -328,11 +338,15 @@ ul {
 label {
     font-size: smaller;
 }
+
+
 #ingredients {
     margin: 5px;
     font-size: 16px;
     font-weight: 600;
     padding: 20px 0;
+    border: solid 1px lightblue;
+    border-radius: 10%;
 }
 
 #ingr-text {
@@ -340,7 +354,7 @@ label {
     padding: 10px;
 }
 
-#mess-text {
+#message-text, #message {
     color: mediumblue;
 }
 

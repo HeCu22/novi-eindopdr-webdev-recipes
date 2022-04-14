@@ -21,20 +21,18 @@ async function fetchDetails(inputId) {
         // get detail information from data
         const detailList = document.getElementById("detail-list")
 
-
-// create container element for recipe line in div
+        // create container element for recipe line in div
         let recDiv = document.createElement('div');
         recDiv.setAttribute('id', 'rec-item');
 
         // create container element for recipe line in article
         let recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
 
         // create h4 element with span for title
         let recTitle = document.createElement('h4');
         recTitle.setAttribute("class", "row")
-        recTitle.textContent = "Description:";
+        recTitle.textContent = "Description: ";
         let recSpan = document.createElement('span');
         recSpan.setAttribute('class', 'rec-description');
         recSpan.textContent = detailsRecipe.data.title;
@@ -57,15 +55,14 @@ async function fetchDetails(inputId) {
 
         // create container element for recipe line in article
         recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
 
 // create div element for cooking-time and servings
 
         // create h4 element with span for cooking-time
         let recTime = document.createElement('h4');
         recTime.setAttribute("class", "row")
-        recTime.textContent = "Cooking time:";
+        recTime.textContent = "Cooking time: ";
 
         let recSpan1 = document.createElement('span');
         recSpan1.setAttribute('class', 'rec-description');
@@ -77,7 +74,7 @@ async function fetchDetails(inputId) {
         // create h4 element with span for servings
         let recServ = document.createElement('h4');
         recServ.setAttribute("class", "row")
-        recServ.textContent = "Servings:";
+        recServ.textContent = "Servings: ";
 
         let recSpan2 = document.createElement('span');
         recSpan2.setAttribute('class', 'rec-description');
@@ -90,7 +87,7 @@ async function fetchDetails(inputId) {
         // create h4 element with span for Author
         let recAuth = document.createElement('h4');
         recAuth.setAttribute("class", "row")
-        recAuth.textContent = "Author:";
+        recAuth.textContent = "Author: ";
 
         let recAut1 = document.createElement('span');
         recAut1.setAttribute('class', 'rec-description');
@@ -102,7 +99,7 @@ async function fetchDetails(inputId) {
         // create h4 element with span for health score
         let recHealthScore = document.createElement('h4');
         recHealthScore.setAttribute("class", "row")
-        recHealthScore.textContent = "Health score:";
+        recHealthScore.textContent = "Health score: ";
 
         let recHealthScore1 = document.createElement('span');
         recHealthScore1.setAttribute('class', 'rec-description');
@@ -113,7 +110,7 @@ async function fetchDetails(inputId) {
 
         // create element with span for ingredients
         let recIngr = document.createElement('h4');
-        recIngr.textContent = "Ingredients:";
+        recIngr.textContent = "Ingredients: ";
         let recIngrUl = document.createElement('ul');
 
         let ingrediT = "";
@@ -137,12 +134,11 @@ async function fetchDetails(inputId) {
 
 // create container element for detail recipe item line in article
         recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
 
         // create p element with span for instructions
         let recInstr = document.createElement('h4');
-        recInstr.textContent = "Instructions:";
+        recInstr.textContent = "Instructions: ";
         let recSpan3 = document.createElement('span');
         recSpan3.setAttribute('class', 'rec-text');
         recSpan3.innerHTML = detailsRecipe.data.instructions;
@@ -156,12 +152,11 @@ async function fetchDetails(inputId) {
 
         // create container element for detail recipe item article
         recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
 
         // create h4 element with span for summary
         let recSumm = document.createElement('h4');
-        recSumm.textContent = "Summary:";
+        recSumm.textContent = "Summary: ";
         let recSum1 = document.createElement('span');
         recSum1.setAttribute('class', 'rec-text');
         recSum1.innerHTML = detailsRecipe.data.summary;
@@ -180,6 +175,8 @@ async function fetchDetails(inputId) {
 
     } catch (e) {
         console.error(e);
+        // fill message text
+        messageText.textContent = `Details not found. Reference to database is not valid anymore. Ask support for help`;
     }
 }
 
