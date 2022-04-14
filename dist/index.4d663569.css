@@ -11,6 +11,7 @@ h1, h2, h3, h4 {
 }
 
 h4 {
+  gap: 3px;
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -44,6 +45,14 @@ ul {
 
 .blankline {
   margin-top: 5px;
+}
+
+.high-light {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }
 
 .top {
@@ -80,8 +89,9 @@ ul {
 
 .icon-img32 {
   width: 50px;
+  border: 1px solid #add8e6;
+  border-radius: 10%;
   margin: 5px;
-  padding: 5px;
 }
 
 .blankline {
@@ -95,7 +105,7 @@ ul {
 }
 
 .img-p {
-  width: 50px;
+  width: 20%;
   border-radius: 10%;
 }
 
@@ -109,11 +119,15 @@ ul {
   font-weight: lighter;
 }
 
+#sub-header {
+  text-align: center;
+}
+
 #sel-container {
   max-width: 900px;
   text-align: left;
   margin-left: 50px;
-  padding: 50px;
+  padding: 50px 50px 0;
 }
 
 #sel-style {
@@ -130,7 +144,7 @@ ul {
   max-width: 900px;
   justify-content: center;
   align-items: flex-start;
-  margin: 50px;
+  margin: 0 50px 50px;
 }
 
 #detail-container {
@@ -190,6 +204,9 @@ ul {
   padding: 2px;
 }
 
+#buttons {
+}
+
 #buttonStart {
   width: 200px;
   height: 30px;
@@ -199,8 +216,8 @@ ul {
   margin: 5px;
   font-size: medium;
   position: relative;
-  top: 10px;
-  left: 100px;
+  top: 5px;
+  left: 350px;
 }
 
 #buttonDetail {
@@ -212,8 +229,8 @@ ul {
   margin: 5px;
   font-size: medium;
   position: relative;
-  top: -10px;
-  left: 300px;
+  top: 350px;
+  left: 350px;
 }
 
 #buttonNext {
@@ -226,15 +243,13 @@ ul {
   margin: 5px;
   font-size: medium;
   position: relative;
-  bottom: 100px;
+  top: 500px;
   left: 350px;
 }
 
-#recipe-list {
-}
-
-#recipe-list img {
-  width: 20%;
+#recipe-list li {
+  margin-left: 25px;
+  list-style: square;
 }
 
 #detail-list {
@@ -248,21 +263,27 @@ ul {
   display: flex;
 }
 
-#rec-art {
+.rec-art {
+  border: 1px solid #6a5acd;
+  border-left: none;
+  border-radius: 10px;
   flex: 1 0 250px;
   gap: 10px;
+  padding: 8px;
 }
 
-#rec-instr, #rec-description, #rec-time, #rec-servings, #rec-ingr, span {
+#rec-description, span {
   max-width: 700px;
 }
 
 #rec-img {
   max-width: 430px;
   border-radius: 10%;
+  padding: 5px;
 }
 
 .rec-description {
+  color: #6a5acd;
   font-family: Merriweather, Georgia, serif;
   font-size: 16px;
 }
@@ -278,6 +299,8 @@ label {
 }
 
 #ingredients {
+  border: 1px solid #add8e6;
+  border-radius: 10%;
   margin: 5px;
   padding: 20px 0;
   font-size: 16px;
@@ -289,13 +312,23 @@ label {
   padding: 10px;
 }
 
-#mess-text {
+#message-text, #message {
   color: #0000cd;
 }
 
 @media screen and (min-width: 768px) {
   #buttonNext {
     bottom: 100px;
+    left: 500px;
+  }
+
+  #buttonDetail {
+    top: 300px;
+    left: 500px;
+  }
+
+  #buttonStart {
+    top: 50px;
     left: 500px;
   }
 

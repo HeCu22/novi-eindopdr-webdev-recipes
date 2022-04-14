@@ -531,7 +531,7 @@ formSubmit.addEventListener("submit", (e)=>{
     inputSearching = `${inputIngredients.value} ${inputNumber.value}`;
     if (inputSearching > "") {
         // buttonDisplay for nextPage display
-        const buttonDisp = document.getElementById("button-place");
+        const buttonDisp = document.getElementById("button-place-next");
         buttonDisp.replaceChildren();
         let buttonTag = document.createElement("button");
         buttonTag.setAttribute("id", "buttonNext");
@@ -561,8 +561,8 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
     try {
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/findByIngredients", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 ingredients: inputIngredients,
                 number: inputNumber,
                 ranking: 2,
@@ -574,10 +574,12 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
         });
         const foundRecipes = response.data;
         const recipesLength = foundRecipes.length;
+        console.log('array', foundRecipes);
         // create a list with maximum number of lines per page that uses array of all found
         let firstLine = 0;
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
+        console.log('array', arrayDisplay);
         // initialize first page
         newPageSet = true;
         _createListLinesDefault.default(arrayDisplay);
@@ -658,21 +660,25 @@ function createListLines(recipes) {
     // Zorg ervoor dat na elke zoekopdracht en dat er altijd het gewenste zoekresultaat op de pagina staat;
     recipeList.replaceChildren();
     if (recipes.length < numberOfLines) messageText.textContent = `Last data found. Press Start to go to first page.`;
-    else messageText.textContent = ` `;
+    else messageText.textContent = `Searching for recipes with input specified`;
     // reference save of user input
     const inputAuthor = document.getElementById('author');
     const inputTags = document.getElementById('tags');
     const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
+    const inputDiet = document.getElementById('diet');
     let selRec = "selRec-0";
     let i = 0;
+    let buttonDetail = document.getElementById("button-place-detail");
+    buttonDetail.replaceChildren();
     let recipeButton = document.createElement('button');
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
     recipeButton.setAttribute("name", 'buttonDetail');
     recipeButton.textContent = "Details";
+    buttonDetail.appendChild(recipeButton);
     // one or more recipe lines are possible
     recipes.map((recipe, number)=>{
         /* ------------------------------------ */ //   use create element method to fill the DOM tree
@@ -696,6 +702,7 @@ function createListLines(recipes) {
         let recipeImg = document.createElement('img');
         recipeImg.setAttribute('class', 'img-p');
         recipeImg.setAttribute('src', `${recipe.image}`);
+        recipeImg.setAttribute('alt', "recipeImage");
         // create container element for recipe line in div
         let recipeDivText = document.createElement('div');
         recipeDivText.setAttribute('class', 'column');
@@ -708,7 +715,7 @@ function createListLines(recipes) {
         const recipeExtra = document.createElement('p');
         if (inputIngredients) {
             //  fill extra elemenent
-            let extra = "Ingredients:";
+            let extra = "Ingredients: ";
             recipe.usedIngredients.map((ingredient)=>{
                 extra += ingredient.name;
             });
@@ -717,6 +724,7 @@ function createListLines(recipes) {
         }
         const recipeId = document.createElement("p");
         recipeId.textContent = recipe.id;
+        recipeId.setAttribute('class', 'hidden');
         // put elements in container div
         recipeDivLine.appendChild(recipeImg);
         recipeDivText.appendChild(recipeTitle);
@@ -730,7 +738,6 @@ function createListLines(recipes) {
         document.getElementById('recipe-list').scrollIntoView();
         i++;
     });
-    recipeList.appendChild(recipeButton);
 }
 exports.default = createListLines;
 
@@ -745,8 +752,8 @@ async function fetchDetails(inputId) {
     try {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {
@@ -760,12 +767,11 @@ async function fetchDetails(inputId) {
         recDiv.setAttribute('id', 'rec-item');
         // create container element for recipe line in article
         let recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
         // create h4 element with span for title
         let recTitle = document.createElement('h4');
         recTitle.setAttribute("class", "row");
-        recTitle.textContent = "Description:";
+        recTitle.textContent = "Description: ";
         let recSpan = document.createElement('span');
         recSpan.setAttribute('class', 'rec-description');
         recSpan.textContent = detailsRecipe.data.title;
@@ -776,19 +782,19 @@ async function fetchDetails(inputId) {
         recImg.setAttribute('id', 'rec-img');
         tempImg = `https://spoonacular.com/recipeImages/` + inputId + `-556x370.jpg`;
         recImg.setAttribute('src', `${tempImg}`);
+        recImg.setAttribute('alt', `recipeImage`);
         // put elements in container article
         recArt.appendChild(recImg);
         // put elements in container div
         recDiv.appendChild(recArt);
         // create container element for recipe line in article
         recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
         // create div element for cooking-time and servings
         // create h4 element with span for cooking-time
         let recTime = document.createElement('h4');
         recTime.setAttribute("class", "row");
-        recTime.textContent = "Cooking time:";
+        recTime.textContent = "Cooking time: ";
         let recSpan1 = document.createElement('span');
         recSpan1.setAttribute('class', 'rec-description');
         recSpan1.textContent = detailsRecipe.data.readyInMinutes;
@@ -798,7 +804,7 @@ async function fetchDetails(inputId) {
         // create h4 element with span for servings
         let recServ = document.createElement('h4');
         recServ.setAttribute("class", "row");
-        recServ.textContent = "Servings:";
+        recServ.textContent = "Servings: ";
         let recSpan2 = document.createElement('span');
         recSpan2.setAttribute('class', 'rec-description');
         recSpan2.textContent = detailsRecipe.data.servings;
@@ -808,18 +814,27 @@ async function fetchDetails(inputId) {
         // create h4 element with span for Author
         let recAuth = document.createElement('h4');
         recAuth.setAttribute("class", "row");
-        recAuth.textContent = "Author:";
+        recAuth.textContent = "Author: ";
         let recAut1 = document.createElement('span');
         recAut1.setAttribute('class', 'rec-description');
         recAut1.textContent = detailsRecipe.data.author;
         // put elements in container article
         recAuth.appendChild(recAut1);
         recArt.appendChild(recAuth);
+        // create h4 element with span for health score
+        let recHealthScore = document.createElement('h4');
+        recHealthScore.setAttribute("class", "row");
+        recHealthScore.textContent = "Health score: ";
+        let recHealthScore1 = document.createElement('span');
+        recHealthScore1.setAttribute('class', 'rec-description');
+        recHealthScore1.textContent = detailsRecipe.data.healthScore;
+        // put elements in container article
+        recHealthScore.appendChild(recHealthScore1);
+        recArt.appendChild(recHealthScore);
         // create element with span for ingredients
         let recIngr = document.createElement('h4');
-        recIngr.textContent = "Ingredients:";
+        recIngr.textContent = "Ingredients: ";
         let recIngrUl = document.createElement('ul');
-        console.log('ingred', detailsRecipe.data, detailsRecipe.data.extendedIngredients.length, detailsRecipe.data.extendedIngredients);
         let ingrediT = "";
         for(let i = 0; i < detailsRecipe.data.extendedIngredients.length; i++){
             let recIngrLi = document.createElement('li');
@@ -838,11 +853,10 @@ async function fetchDetails(inputId) {
         recDiv.appendChild(recArt);
         // create container element for detail recipe item line in article
         recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
         // create p element with span for instructions
         let recInstr = document.createElement('h4');
-        recInstr.textContent = "Instructions:";
+        recInstr.textContent = "Instructions: ";
         let recSpan3 = document.createElement('span');
         recSpan3.setAttribute('class', 'rec-text');
         recSpan3.innerHTML = detailsRecipe.data.instructions;
@@ -853,11 +867,10 @@ async function fetchDetails(inputId) {
         recDiv.appendChild(recArt);
         // create container element for detail recipe item article
         recArt = document.createElement('article');
-        recArt.setAttribute('id', 'rec-art');
-        recArt.setAttribute('class', 'column');
+        recArt.setAttribute('class', 'rec-art column');
         // create h4 element with span for summary
         let recSumm = document.createElement('h4');
-        recSumm.textContent = "Summary:";
+        recSumm.textContent = "Summary: ";
         let recSum1 = document.createElement('span');
         recSum1.setAttribute('class', 'rec-text');
         recSum1.innerHTML = detailsRecipe.data.summary;
@@ -870,6 +883,8 @@ async function fetchDetails(inputId) {
         document.getElementById('rec-item').scrollIntoView();
     } catch (e) {
         console.error(e);
+        // fill message text
+        messageText.textContent = `Details not found. Reference to database is not valid anymore. Ask support for help`;
     }
 }
 exports.default = fetchDetails;

@@ -14,14 +14,15 @@ let newPageSet = true;
 let selectRecipe = [];
 
 // function to fetch data and make a get request to spoonacular api
-async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
+async function fetchFastRecipes(inputtimeR, inputNumber, inputDiet ,inputMealTypeString) {
     try {
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // piKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 type: inputMealTypeString,
+                diet: inputDiet,
                 maxReadyTime: inputtimeR,
                 number: inputNumber
             },
@@ -45,6 +46,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
         newPageSet = true;
 
         createListLines(arrayDisplay);
+        // reset the userInput
+        inputDiet.value = '';
 
         // listen to button id="buttonNext" to display next page
         const button = document.getElementById("buttonNext");
@@ -62,6 +65,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputMealTypeString) {
                     newPageSet = true;
 
                     createListLines(arrayDisplay);
+                    // reset the userInput
+                    inputDiet.value = '';
 
                 } else {
                     let firstLine = 0;

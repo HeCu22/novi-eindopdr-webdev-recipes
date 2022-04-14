@@ -1,7 +1,5 @@
 function createListLines(recipes) {
 
-
-
     const recipeList = document.getElementById('recipe-list');
 
     // intialize page message and number of lines on each page
@@ -16,8 +14,7 @@ function createListLines(recipes) {
     if (recipes.length < numberOfLines) {
         messageText.textContent = `Last data found. Press Start to go to first page.`;
     } else {
-        messageText.textContent = ` `;
-        `Searching for recipes with input specified`;
+        messageText.textContent = `Searching for recipes with input specified`;
     }
 
     // reference save of user input
@@ -26,16 +23,20 @@ function createListLines(recipes) {
     const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
+    const inputDiet = document.getElementById('diet');
 
     let selRec = "selRec-0";
     let i = 0;
 
+    let buttonDetail = document.getElementById("button-place-detail");
+    buttonDetail.replaceChildren()
     let recipeButton = document.createElement('button');
     recipeButton.setAttribute('id', 'buttonDetail');
     recipeButton.setAttribute('type', 'submit');
     recipeButton.setAttribute('form', 'recipe-list');
     recipeButton.setAttribute("name",'buttonDetail');
     recipeButton.textContent = "Details";
+    buttonDetail.appendChild(recipeButton);
 
 
     // one or more recipe lines are possible
@@ -75,6 +76,8 @@ function createListLines(recipes) {
         let recipeImg = document.createElement('img');
         recipeImg.setAttribute('class', 'img-p');
         recipeImg.setAttribute('src', `${recipe.image}`);
+        recipeImg.setAttribute('alt', "recipeImage");
+
 
         // create container element for recipe line in div
         let recipeDivText = document.createElement('div');
@@ -90,7 +93,7 @@ function createListLines(recipes) {
         const recipeExtra = document.createElement('p');
         if (inputIngredients) {
             //  fill extra elemenent
-            let extra = "Ingredients:";
+            let extra = "Ingredients: ";
             recipe.usedIngredients.map((ingredient) => {
                 extra += ingredient.name;
             });
@@ -101,6 +104,7 @@ function createListLines(recipes) {
         const recipeId = document.createElement("p");
 
         recipeId.textContent = recipe.id;
+        recipeId.setAttribute('class', 'hidden');
 
         // put elements in container div
         recipeDivLine.appendChild(recipeImg);
@@ -122,7 +126,7 @@ function createListLines(recipes) {
 
     });
 
-    recipeList.appendChild(recipeButton);
+
 
 
 }

@@ -15,6 +15,7 @@ let selectRecipe = [];
 
 // function to fetch data and make a get request to spoonacular api
 async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, inputCuisine) {
+
     try {
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
@@ -49,7 +50,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         inputAuthor.value = '';
         inputTags.value = '';
         inputTitle.value = '';
-        console.log('ik ben hier');
 
         // listen to button id="buttonNext" to display next page
         const buttonNext = document.getElementById("buttonNext");

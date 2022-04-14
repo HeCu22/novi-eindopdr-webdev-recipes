@@ -25,7 +25,8 @@ function createMealTypeList(mealTypes) {
         mealTypeInput.setAttribute('type', 'checkbox');
         mealTypeInput.setAttribute("id", selMeal);
         mealTypeInput.setAttribute("value", `${mealTypes[i]}`);
-        mealTypeInput.setAttribute("text", `${mealTypes[i]}`)
+        mealTypeInput.setAttribute("text", `${mealTypes[i]}`);
+
 
         // mealTypeLabel.textContent = `${mealTypes[i]}`;
 

@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/index.4d663569.css">
-    <title>Creative new or special Cuisine recipes</title>
+    <title>Menu ingredients-search recipes</title>
 </head>
-<body>
+<body id="body">
 <header id="head-section" class="top">
     <nav class="navbar">
-        <a href="/index.html" target="_self"> <img class="icon-img32" src="/icon-home.c09aba78.png" alt="Back"> </a>
-        <a href="#top-header" target="_self"> <img class="icon-img32" src="/icon-menu.c482da66.png" alt="Back"> </a>
+        <a href="/index.html" target="_self"> <img class="icon-img32" src="/icon-menu.c482da66.png" alt="Back to Menu"> </a>
+        <a href="#recipe-list" target="_self"> <img class="icon-img32" src="/icon-chevron-left.10130504.png" alt="Back"> </a>
         <img id="head-img" src="/logo%20img%20background.f87983e3.png" alt="logo-vegetables">
-        <a href="#recipe-list" target="_self"> <img class="icon-img32" src="/icon-search.676f7a10.png" alt="find recipe"> </a>
+        <a href="#body" target="_self"> <img class="icon-img32" src="/icon-chevron-up.0adbdf12.png" alt="Back to top"></a>
+            <a href="/menus/menuFastEasy.html" target="_self"> <img class="icon-img32" src="/icon-search.676f7a10.png" alt="find recipe"> </a>
     </nav>
     <h1 id="top-header">Recipes for home-style cookin'</h1>
-    <p class="blankline"></p>
-    <p class="blankline"></p>
-    <h2>What you have to put in your Cooking Kit!</h2>
-
 
 </header>
 
+
 <section id="sel-container" class="column">
+    <p class="blankline"></p>
 
-
+    <h2 id="sub-header">What you have to put in your Cooking Kit!</h2>
+    <p class="blankline"></p>
     <section id="sel-style" class="row">
         <img class="icon-img icon-img-extra" src="/fridge.8534621f.jpg" alt="fridge filled with ingredients">
         <form id="on-submit-ingredients" class="column">
@@ -35,7 +35,7 @@
                 <div>
                     <label for="ingredients" class="column">
                         <p id="ingr-text">
-                         ..enter a comma-separated list of ingredients..</p>
+                            ..enter a comma-separated list of ingredients..</p>
                         <input type="text" id="ingredients" name="ingredients" value="" placeholder="lettuce,tomato">
                     </label>
                 </div>
@@ -49,22 +49,31 @@
                     <input type="number" id="numberMax" value="15" name="numberMax">
                 </label>
             </div>
-
-            <button type="submit" form="on-submit-ingredients" id="buttonStart">Start</button>
         </form>
-
     </section>
 </section>
+<section id="buttons">
+    <button type="submit" form="on-submit-ingredients" id="buttonStart">Start</button>
+    <div id="button-place-detail"></div>
+    <div id="button-place-next"></div>
+</section>
+
 <section id="list-container" class="column">
     <div id="message-text">Select some options to search recipes and click on search button</div>
-    <form id="recipe-list">Recipes will be listed here after your selection...</form>
-    
-    <div id="button-place"></div>
+    <form id="recipe-list">Recipes will be listed here after your selection...
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </form>
 </section>
-<div id="message"></div>
+
 <section id="detail-container" class="column">
-    <ul id="detail-list">......details of recipe...</ul>
+    <div id="detail-header"> Details of recipes selected....</div>
+    <div id="detail-list">  <img class="icon-img32" src="/healthy.b16ca0d8.jpg" alt="healthy meal"> </div>
 </section>
+
 <script src="/menus/menuFastEasy.4d6bcbeb.js" defer=""></script>
 <script src="/menus/healthyIngredients.b2524a20.js" defer=""></script>
 
