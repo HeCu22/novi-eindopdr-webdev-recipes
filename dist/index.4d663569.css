@@ -147,7 +147,7 @@ ul {
 }
 
 .ref-sel:hover:after {
-  content: "sel";
+  content: "find";
 }
 
 .ref-null {

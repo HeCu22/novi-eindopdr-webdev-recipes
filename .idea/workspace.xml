@@ -12,12 +12,22 @@
       <change beforePath="$PROJECT_DIR$/dist/index.4d663569.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.4d663569.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menus/healthyIngredients.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/healthyIngredients.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menus/menuCuisine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/menuCuisine.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menus/menuFastEasy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/menuFastEasy.html" afterDir="false" />
@@ -47,15 +57,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes" />
       <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes\src\assets" />
+      <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes\src\assets\screenshots" />
@@ -76,6 +86,13 @@
       <workItem from="1650119576967" duration="2005000" />
       <workItem from="1650124126740" duration="382000" />
       <workItem from="1650125984354" duration="3943000" />
+      <workItem from="1650135644611" duration="150000" />
+      <workItem from="1650278610340" duration="7847000" />
+      <workItem from="1650288363638" duration="1842000" />
+      <workItem from="1650296013844" duration="2640000" />
+      <workItem from="1650300470912" duration="247000" />
+      <workItem from="1650345212370" duration="176000" />
+      <workItem from="1650345459782" duration="65000" />
     </task>
     <servers />
   </component>

@@ -621,7 +621,6 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputDiet, inputMealTyp
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // piKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 type: inputMealTypeString,
                 diet: inputDiet,
                 maxReadyTime: inputtimeR,
@@ -810,7 +809,6 @@ async function fetchDetails(inputId) {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {

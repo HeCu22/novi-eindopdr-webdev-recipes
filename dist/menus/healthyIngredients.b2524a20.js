@@ -562,10 +562,9 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/findByIngredients", {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 ingredients: inputIngredients,
                 number: inputNumber,
-                ranking: 2,
+                ranking: 1,
                 /*---- maximize to be used ingredients -----*/ ignorePantry: true
             },
             headers: {
@@ -753,7 +752,6 @@ async function fetchDetails(inputId) {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {
