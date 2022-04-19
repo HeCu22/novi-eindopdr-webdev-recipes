@@ -624,7 +624,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         const response = await _axiosDefault.default.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 cuisine: inputCuisine,
                 author: inputAuthor,
                 tags: inputTags,
@@ -2389,7 +2388,6 @@ async function fetchDetails(inputId) {
         const detailsRecipe = await _axiosDefault.default.get(`https://api.spoonacular.com/recipes/${inputId}/information?includeNutrition=false`, {
             params: {
                 apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                // apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 id: inputId
             },
             headers: {

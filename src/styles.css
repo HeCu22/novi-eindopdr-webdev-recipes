@@ -140,6 +140,41 @@ ul {
     color: palevioletred;
 }
 
+
+.ref-back::after, .ref-menu::after, .ref-null::after, .ref-top::after, .ref-sel::after {
+    display: inline-block;
+    content: "";
+    width: 0;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+
+}
+
+.ref-menu:hover::after, .ref-back:hover::after, .ref-top:hover::after, .ref-sel:hover::after   {
+    content: "menu";
+    height: 20px;
+    width: 50px;
+    background-color: blanchedalmond;
+    border: 5px white;
+    border-radius: 20px;
+    text-align: center;
+}
+.ref-back:hover::after {
+    content: "list";
+}
+.ref-top:hover::after {
+    content: "top";
+}
+.ref-sel:hover::after {
+    content: "find";
+}
+
+.ref-null {
+    border: none;
+}
+
+
 #sub-header {
     text-align: center;
 }
