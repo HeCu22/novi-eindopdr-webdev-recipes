@@ -8,30 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.parcel-cache/9fa21b52a537fb38" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/9fa21b52a537fb38" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/data.mdb" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/data.mdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.parcel-cache/e06668467d39728c" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/e06668467d39728c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.4d663569.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.4d663569.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.4d663569.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.4d663569.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/healthyIngredients.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/healthyIngredients.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/menuCuisine.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/menuCuisine.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/menuFastEasy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/menuFastEasy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +75,8 @@
       <workItem from="1650300470912" duration="247000" />
       <workItem from="1650345212370" duration="176000" />
       <workItem from="1650345459782" duration="65000" />
+      <workItem from="1650364227487" duration="1166000" />
+      <workItem from="1650365585179" duration="248000" />
     </task>
     <servers />
   </component>

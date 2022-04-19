@@ -1,5 +1,6 @@
 # Installatie Handleiding Cookin'Moods
-Webapplicatie voor ReceptKeuze
+Webapplicatie voor ReceptKeuze,
+Versie 1.0
 
 ## Inhoudsopgave
 
@@ -13,7 +14,7 @@ Webapplicatie voor ReceptKeuze
 ## Inleiding
 
 Er zijn natuurlijk al heel veel applicaties te vinden via welke je een recept kan zoeken en ook via google vind je waarschijnlijk al heel veel. Maar een recept zoeken afhankelijk van je stemming is misschien toch wel heel gemakkelijk, vooral als je niet zoveel zin hebt om te koken en snel een recept tevoorschijn wil toveren.
-De applicatie ‘Cookin’Moods’ kan hier misschien bij helpen. Op het onderstaande hoofdscherm wordt je als eerste gevraagd hoe het met jouw kook-energie is. Misschien heb je gewoon een bepaalde kook-stijl en zoek je daar iets bij
+De applicatie ‘Cookin’Moods’ kan hier misschien bij helpen. Op het onderstaande hoofdscherm wordt je als eerste gevraagd hoe het met jouw kook-energie is. Misschien heb je gewoon een bepaalde kook-stijl en zoek je daar iets bij.
 
 Via het startmenu wordt naar de stemming van de gebruiker gevraagd door aan te vragen in welke ‘Cookin’Mood men is en door te klikken op een van de drie afbeeldingen met beschrijvende steekwoorden ernaast, kan men dit aangeven. 
 De keuzes die hij heeft zijn:
@@ -40,6 +41,8 @@ Door te klikken op één van icoontjes, komt men op een vervolgmenu waar men de 
 Bij deze applicatie maak ik gebruik van HTTP requests naar de Spoonacular API (https://spoonacular.com/food-api/docs) om zo de juiste data op te vragen en te verwerken in mijn applicatie. De documentatie over de verschillende endpoints kun je hier vinden.
 In deze api is vooral gebuik gemaakt van Search Recipes’ (complex search), ‘Search Recipes by ingredients’ en ‘Search Recipes bij Id’.
 
+De API key die gebruikt kan worden is: "dbfe72f1a5bd47d9bea64ca490667395"
+
 NPM en Parcel zijn al geconfigureerd, de bijbehorende dependencies moet men wel nog  installeren. 
 Omdat er al een package.json aanwezig is in het bestand, kun je dit doen met het volgende (globale) commando:
 
@@ -48,13 +51,13 @@ Omdat er al een package.json aanwezig is in het bestand, kun je dit doen met het
 Alle benodigde dependencies worden dan binnengehaald! Als je de applicatie wil starten, doe dat dan met het volgende commando:
 * npm run start
 
-Axios staat ook in de package.json en het is dan niet meer nodig om het te installeren.
+Axios staat ook in de package.json en het is dus niet meer nodig om het te installeren.
  
 
 
 ## Randvoorwaarden
 
-* Webstorm moet geïnstalleerd zijn op de computer om al de genoemde ‘terminal’ commando’s te kunnen uitvoeren. Webstorm is de IDE (Integrated Development Environment)die gebruikt is om code in te programmeren. De structuur van de webpagina’s is opgezet met behulp van HTML versie 5, en de styling is gebeurd met , CSS. Met Javascript is er logica aan toegevoegd voor de interactie met de gebruiker.
+* Webstorm moet geïnstalleerd zijn op de computer om al de genoemde ‘terminal’ commando’s te kunnen uitvoeren. Webstorm is de IDE (Integrated Development Environment)die gebruikt is om code in te programmeren. De structuur van de webpagina’s is opgezet met behulp van HTML versie 5, en de styling is gebeurd met CSS. Met Javascript is er logica aan toegevoegd voor de interactie met de gebruiker.
 * De code is beheerd met behulp van GIT. 
 GIT is het VCS, distributed version control system, dat gebruikt is. De applicatie staat op een GITHUB repository, en dus is het handig als GIT geïnstalleerd is op je computer om de applicatie te kunnen clonen in Webstorm. 
 
@@ -114,19 +117,19 @@ Om de applicatie Cookin’Moods te installeren op een laptop of personal compute
 Creëer een nieuw project in Webstorm met “Create new project from version control”;
 2. GitHub:
 ‘Copy’ de repository link van het project dat beschikbaar is onder:
-	 HeCu22/novi-eindopdr-webdev-recipes (github.com)
+     HeCu22/novi-eindopdr-webdev-recipes (github.com) https://github.com/HeCu22/novi-eindopdr-webdev-recipes
 3. Webstorm: 
 New project from Version Control,
 ‘Paste’ de url sub 2. in Webstorm in de popup om een nieuw project ‘from version control’ te creeren,
-	Click button: 
-	clone
-	Click: 
-	confirm trusting 
-	Selecteer: 
-	new window 
+    Click button: 
+    clone
+    Click: 
+    confirm trusting 
+    Selecteer: 
+    new window 
 4. Webstorm Terminal:
-	Verwijder de link met de remote en type het comando:
-	git remote remove origin
+    Verwijder de link met de remote en type het comando:
+    git remote remove origin
 	 
 5. Webstorm Terminal:
 · enter het commando:
@@ -134,7 +137,7 @@ npm install
 · wacht tot ‘ready’
 · run ‘npm audit fix’ if still vulnerabilities found
 · vervolgens run met commando:
-	npm run start
+    npm run start
 · vervolgens click op de link die dan wordt gegeven: Bijvoorbeeld: ‘https://local host:1234’
 · Vervolgens zie je het hoofdmenu van Cookin’Moods
 
