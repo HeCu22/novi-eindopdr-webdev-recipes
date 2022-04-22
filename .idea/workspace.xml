@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="145bc36c-1e1f-4f21-b000-8c9881592877" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/5f7cb051b3a92e2b" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/5f7cb051b3a92e2b" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/82d18a4721c399ec.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/82d18a4721c399ec.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/9fa21b52a537fb38" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/9fa21b52a537fb38" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/data.mdb" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/data.mdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/e06668467d39728c" beforeDir="false" afterPath="$PROJECT_DIR$/.parcel-cache/e06668467d39728c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +29,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -50,6 +40,8 @@
       <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes\dist" />
+      <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes" />
       <recent name="C:\Users\helga\WebstormProjects\Novi-Eindopdr-Webdev-Recipes\src\assets\screenshots" />
     </key>
   </component>
@@ -77,6 +69,21 @@
       <workItem from="1650345459782" duration="65000" />
       <workItem from="1650364227487" duration="1166000" />
       <workItem from="1650365585179" duration="248000" />
+      <workItem from="1650374313094" duration="289000" />
+      <workItem from="1650375880759" duration="43000" />
+      <workItem from="1650385687506" duration="126000" />
+      <workItem from="1650389369453" duration="7000" />
+      <workItem from="1650390288600" duration="3000" />
+      <workItem from="1650391219137" duration="26000" />
+      <workItem from="1650439560737" duration="676000" />
+      <workItem from="1650440263549" duration="657000" />
+      <workItem from="1650444106385" duration="133000" />
+      <workItem from="1650444380999" duration="1702000" />
+      <workItem from="1650447651433" duration="201000" />
+      <workItem from="1650467334615" duration="471000" />
+      <workItem from="1650468855595" duration="69000" />
+      <workItem from="1650469089602" duration="244000" />
+      <workItem from="1650469402065" duration="1597000" />
     </task>
     <servers />
   </component>

@@ -19,7 +19,8 @@ async function fetchFastRecipes(inputtimeR, inputNumber, inputDiet ,inputMealTyp
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
+                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
                 type: inputMealTypeString,
                 diet: inputDiet,
                 maxReadyTime: inputtimeR,
