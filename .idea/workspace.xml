@@ -2,72 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="145bc36c-1e1f-4f21-b000-8c9881592877" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/0573adff3ef1527d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/14bc1f86e6e7506f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/1f3d9b232984825c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/28b12e046f5fd47d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/51d8df9b13252419" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/53cf8657d4e540b7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/56c3a48b397226be" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/5f7cb051b3a92e2b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/608f2695477766bf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/66f194b2dbaed44b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/7aca473ad887d9cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/82d18a4721c399ec.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/87221f8b437e6974" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/8779bcc166040fb5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/8cfa285a74360b06" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/96ae3a3ec75e3dac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/98aecba30fdb6307" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/9fa21b52a537fb38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/a100aac52cdb0e75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/aa27ab77ec58dbdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/b0bd2ab011c12311" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/b18ab24527da5aa4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/bec86ad8e8014f4a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/c9ca7c60f0c3b779" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/data.mdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/dd495f47d7cb1871" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/e06668467d39728c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/e82fbf4435f05f3d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/eb8a71f2f209a983" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/f6fcd1996fc4576b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.parcel-cache/lock.mdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/cuisine.24be9d48.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/fridge.8534621f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/healthy.b16ca0d8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-chevron-left.10130504.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-chevron-up.0adbdf12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-home.c09aba78.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-list.7ffb1eec.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-list.b1e1b3e5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-menu.c482da66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-null.3b4c3d21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/icon-search.676f7a10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/imgcookinmoods.e4b55fe2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.4d663569.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.4d663569.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/logo img background.f87983e3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.b2524a20.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/healthyIngredients.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.ff7a114e.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuCuisine.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.4d6bcbeb.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.888b927a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/menus/menuFastEasy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/quick-meal.4621fb1f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchCuiRecipes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchFastRecipes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/fetchRecipeByIngredients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +80,10 @@
       <workItem from="1650444106385" duration="133000" />
       <workItem from="1650444380999" duration="1702000" />
       <workItem from="1650447651433" duration="201000" />
+      <workItem from="1650467334615" duration="471000" />
+      <workItem from="1650468855595" duration="69000" />
+      <workItem from="1650469089602" duration="244000" />
+      <workItem from="1650469402065" duration="1597000" />
     </task>
     <servers />
   </component>
