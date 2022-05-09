@@ -10,7 +10,6 @@ createCuisineList(cuisineList);
 
 // reference save of user input
 let inputAuthor = document.getElementById('author');
-let inputTags = document.getElementById('tags');
 let inputTitle = document.getElementById('title');
 let inputNumber = document.getElementById("numberMax");
 let inputCuiString = '';
@@ -30,7 +29,7 @@ formSubmit.addEventListener("submit", (e) => {
      handleCheckbox();
 
     // keep input search field value in message text
-    inputSearching = `${inputAuthor.value} ${inputTags.value}  ${inputTitle.value} ${inputNumber.value}
+    inputSearching = `${inputAuthor.value} ${inputTitle.value} ${inputNumber.value}
         ${inputCuiString}`;
 
 
@@ -44,7 +43,7 @@ formSubmit.addEventListener("submit", (e) => {
         buttonTag.textContent = "+";
         buttonDisp.appendChild(buttonTag);
 
-        fetchCuiRecipes(inputAuthor.value, inputTags.value, inputTitle.value, inputNumber.value, inputCuiString).then();
+        fetchCuiRecipes(inputAuthor.value, inputTitle.value, inputNumber.value, inputCuiString).then();
 
     }
 })
@@ -73,6 +72,5 @@ function handleCheckbox() {
         inputCuiString += selectCuiF[i].value;
         inputCuiString += ",";
     }
-
 
 }

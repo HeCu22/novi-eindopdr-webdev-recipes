@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Roboto&family=Rock+Salt&display=swap');
 
+/* ////////////////////////*/
+/*   Table of Contents*/
+/*   1. Global Styles*/
+/*   2. Typography*/
+/*   3. Layout*/
+/*       Reusables*/
+/*       Other*/
+/*   4. Areas*/
+/*       Header and navigation*/
+/*       Introduction*/
+/*       Main Sections with selection options */
+/*       creative cuisine and meal type selection list */
+/*       ingredients selection list */
+/*       Buttons */
+/*       Section with recipe line items */
+/*       Section with recipe details    */
+/*    5. Media Queries                  */
+/* ////////////////////////*/
+
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
 
 * {
     box-sizing: border-box;
@@ -7,11 +28,11 @@
     padding: 0;
 }
 
+/* ------------------------------- 2. Typography ----------------------------------- */
+
 h1, h2, h3, h4 {
     font-family: 'Merriweather', Georgia, serif;
     font-size: 16px;
-    /*padding: 10px;*/
-    /*margin: 5px;*/
 }
 
 h4 {
@@ -37,9 +58,13 @@ ul {
     margin-left: 10px;
 }
 
-/*--------------------------*/
-/*       reusable           */
-/*--------------------------*/
+label {
+    font-size: smaller;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* -----------------------------------Reusables ------------------------------------ */
 
 .row {
     display: flex;
@@ -57,15 +82,13 @@ ul {
 
 .high-light {
     font-weight: bold;
-    }
+}
 
 .hidden {
     display: none;
 
 }
 
-
-/*---------------------------*/
 .top {
     display: flex;
     flex-direction: column;
@@ -73,8 +96,6 @@ ul {
     align-items: center;
     position: relative;
     top: 30px;
-
-
 }
 
 .navbar {
@@ -113,33 +134,22 @@ ul {
     padding-bottom: 5px;
 }
 
-/*---attributes for recipe line items */
-
-.font-p {
-    margin: 5px;
-    padding: 5px;
-    font-size: medium;
-}
-
-.img-p {
-    width: 20%;
-    border-radius: 10%;
-}
-
-
-
-.recipe-line {
-    display: flex;
-    flex-direction: row;
-
-}
-
 
 ::placeholder {
     font-weight: lighter;
     color: palevioletred;
 }
 
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* ---------------------------------- Header and navigation ------------------------ */
+
+
+#head-section {
+    max-width: 900px;
+    margin: 10px;
+    text-align: left;
+}
 
 .ref-back::after, .ref-menu::after, .ref-null::after, .ref-top::after, .ref-sel::after {
     display: inline-block;
@@ -174,10 +184,27 @@ ul {
     border: none;
 }
 
-
-#sub-header {
-    text-align: center;
+#head-img {
+    width: 500px;
+    padding: 5px;
+    margin: 5px;
+    border: 5px white;
+    border-radius: 20px;
 }
+
+/*----------------------------------- Introduction image ---------------------------- */
+
+#fill-img {
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+    border: 2px;
+    border-radius: 20px;
+}
+
+/* -----------------------------------Main section with selection options ------------*/
+
+
 
 #sel-container {
     max-width: 900px;
@@ -198,50 +225,15 @@ ul {
     width: 200px;
 }
 
-#list-container {
-    max-width: 900px;
-    margin: 0 50px 50px 50px;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#detail-container {
-    margin-left: 50px;
-}
-
-#head-section {
-    max-width: 900px;
-    margin: 10px;
-    text-align: left;
-}
+/* ---------------------------------- creative cuisine and meal type selection list --*/
 
 
-
-
-/*-----recipe line items */
-
-#head-img {
-    width: 500px;
-    padding: 5px;
-    margin: 5px;
-    border: 5px white;
-    border-radius: 20px;
-}
-
-
-#fill-img {
-    width: 300px;
-    padding: 5px;
-    margin: 5px;
-    border: 2px;
-    border-radius: 20px;
-}
 
 #on-submit, #on-submit-cuisine {
     margin-left: 10px;
 }
 
-#author, #tags {
+#author {
     margin-top: 5px;
     width: 150px;
     margin-left: 20px;
@@ -257,7 +249,7 @@ ul {
     margin-left: 10px;
 }
 
-#author, #tags, #title, #numberMax {
+#author, #title, #numberMax {
     color: rebeccapurple;
 }
 
@@ -270,8 +262,27 @@ ul {
 
 }
 
-#buttons {
-    }
+/* -----------------------------------ingredients selection list ---------------------*/
+
+#sub-header {
+    text-align: center;
+}
+#ingredients {
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 20px 0;
+    border: solid 1px lightblue;
+    border-radius: 10%;
+}
+
+#ingr-text {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* ---------------------------------- Buttons --------------------------------------- */
+
 
 #buttonStart {
     background-color: orange;
@@ -314,16 +325,51 @@ ul {
 }
 
 
+/* ---------------------------------- Section with list of recipe lines found --------*/
+
+
+#list-container {
+    max-width: 900px;
+    margin: 0 50px 50px 50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* ---------------------------------- class selectors for recipe lines ---------------*/
+
+.font-p {
+    margin: 5px;
+    padding: 5px;
+    font-size: medium;
+}
+
+.img-p {
+    width: 20%;
+    border-radius: 10%;
+}
+
+
+
+.recipe-line {
+    display: flex;
+    flex-direction: row;
+
+}
+
+/* ---------------------------------- Section with detailed recipe info ------------- */
+
+#detail-container {
+    margin-left: 50px;
+}
+
+
 #recipe-list li {
     list-style: square;
     margin-left: 25px;
 }
 
-#detail-list {
+/* ---------------------------------- selectors for recipe details -------------------*/
 
-}
-
-/* selectors for detail list - recipe details */
 
 #rec-item {
     display: flex;
@@ -370,28 +416,24 @@ ul {
     font-weight: normal;
 }
 
-label {
-    font-size: smaller;
+/* links in summary text are not to be followed */
+
+.rec-text a:link {
+    text-decoration: none;
+    color: black;
+    pointer-events:none; /* deactivate all links with this style class */
 }
 
 
-#ingredients {
-    margin: 5px;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 20px 0;
-    border: solid 1px lightblue;
-    border-radius: 10%;
-}
 
-#ingr-text {
-    margin: 10px;
-    padding: 10px;
-}
 
-#message-text, #message {
+#message-text, #detail-message-text {
     color: mediumblue;
 }
+
+
+/* ------------------------------- 5. Media Queries --------------------------------- */
+
 
 @media screen and (min-width: 768px) {
 

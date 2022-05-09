@@ -79,7 +79,8 @@ function handleCheckbox() {
         inputMealTypeString += selectMealF[i].value;
         inputMealTypeString += ",";
     }
-// put input of diet option in string
+
+    // put input of diet option in string
 
     if (inputDiet.checked) {
         inputDietString = inputDiet.value;

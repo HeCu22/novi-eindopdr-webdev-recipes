@@ -14,17 +14,15 @@ let newPageSet = true;
 let selectRecipe = [];
 
 // function to fetch data and make a get request to spoonacular api
-async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, inputCuisine) {
+async function fetchCuiRecipes(inputAuthor, inputTitle, inputNumber, inputCuisine) {
 
     try {
         //  receive the fetched data in response
         const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
                 cuisine: inputCuisine,
                 author: inputAuthor,
-                tags: inputTags,
                 titleMatch: inputTitle,
                 number: inputNumber
             },
@@ -48,7 +46,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         createListLines(arrayDisplay);
         // reset the userInput
         inputAuthor.value = '';
-        inputTags.value = '';
         inputTitle.value = '';
 
         // listen to button id="buttonNext" to display next page
@@ -69,7 +66,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
                     createListLines(arrayDisplay);
                     // reset the userInput
                     inputAuthor.value = '';
-                    inputTags.value = '';
                     inputTitle.value = '';
                     // inputNumber.value = 15;
 
@@ -116,7 +112,6 @@ async function fetchCuiRecipes(inputAuthor, inputTags, inputTitle, inputNumber, 
         messageText.textContent = `For this input no data found.`;
     }
 }
-
 
 
 // If the checkbox is checked, display the output text

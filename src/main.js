@@ -1,5 +1,4 @@
-import axios from "axios";
-
+// no javascript in main
 
 
 

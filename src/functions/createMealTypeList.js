@@ -37,7 +37,6 @@ function createMealTypeList(mealTypes) {
         // put elements in container label
         mealTypeList.appendChild(mealTypeLabel);
     }
-    console.log(mealTypeList);
 
 }
 

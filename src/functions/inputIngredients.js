@@ -7,7 +7,6 @@ let inputNumber = document.getElementById("numberMax");
 const formSubmit = document.getElementById('on-submit-ingredients');
 const buttonStart = document.getElementById("buttonStart");
 
-
 // initialize input search field value in message text.
 let inputSearching = "";
 

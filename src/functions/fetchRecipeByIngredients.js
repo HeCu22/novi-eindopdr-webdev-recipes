@@ -18,8 +18,7 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
 
         const response = await axios.get("https://api.spoonacular.com/recipes/findByIngredients", {
             params: {
-                // apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
-                apiKey: "e7fbe0c19f1f4db7b20523c1dba4b282",
+                apiKey: "dbfe72f1a5bd47d9bea64ca490667395",
                 ingredients: inputIngredients,
                 number: inputNumber,
                 ranking: 1,                                     /*---- maximize to be used ingredients -----*/
@@ -34,13 +33,11 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
 
         const foundRecipes = response.data;
         const recipesLength = foundRecipes.length;
-        console.log('array',foundRecipes);
 
         // create a list with maximum number of lines per page that uses array of all found
         let firstLine = 0;
         let lastLine = pagenumberOfLines;
         let arrayDisplay = foundRecipes.slice(firstLine, lastLine);
-        console.log('array',arrayDisplay);
 
         // initialize first page
         newPageSet = true;

@@ -37,7 +37,6 @@ function createCuisineList(cuisines) {
             cuisineList.appendChild(cuisineLabel);
         }
 
-
 }
 
 export default createCuisineList;

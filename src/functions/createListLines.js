@@ -19,8 +19,7 @@ function createListLines(recipes) {
 
     // reference save of user input
     const inputAuthor = document.getElementById('author');
-    const inputTags = document.getElementById('tags');
-    const inputTitle = document.getElementById('title');
+   const inputTitle = document.getElementById('title');
     const inputNumber = document.getElementById('numberMax');
     const inputIngredients = document.getElementById('ingredients');
     const inputDiet = document.getElementById('diet');
@@ -112,7 +111,6 @@ function createListLines(recipes) {
         recipeDivText.appendChild(recipeExtra);
         recipeDivLine.appendChild(recipeDivText);
         recipeLabel.appendChild(recipeInput);
-
 
         // put elements in container List
         recipeList.appendChild(recipeLabel)
