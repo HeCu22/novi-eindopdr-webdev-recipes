@@ -1,6 +1,6 @@
 # Installatie Handleiding Cookin'Moods
 Webapplicatie voor ReceptKeuze,
-Versie 1.0
+Versie 2.0
 
 ## Inhoudsopgave
 
