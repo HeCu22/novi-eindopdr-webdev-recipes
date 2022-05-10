@@ -32,7 +32,6 @@ formSubmit.addEventListener("submit", (e) => {
     inputSearching = `${inputAuthor.value} ${inputTitle.value} ${inputNumber.value}
         ${inputCuiString}`;
 
-
     if (inputSearching > "") {
 
         // buttonDisplay for nextPage display

@@ -37,7 +37,7 @@ formSubmit.addEventListener("submit", (e) => {
 
     inputSearching = `${inputtimeR.value} ${inputNumber.value}
         ${inputMealTypeString} ${inputDietString}`;
-    console.log(inputSearching);
+
 
     if (inputSearching > "") {
 
