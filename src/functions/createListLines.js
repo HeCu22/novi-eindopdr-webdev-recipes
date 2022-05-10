@@ -92,12 +92,14 @@ function createListLines(recipes) {
         const recipeExtra = document.createElement('p');
         if (inputIngredients) {
             //  fill extra elemenent
-            let extra = "Ingredients: ";
-            recipe.usedIngredients.map((ingredient) => {
-                extra += ingredient.name;
-            });
-            recipeExtra.textContent = extra;
+
+            const ingrList = recipe.usedIngredients.map((ingredient) => {
+                return ingredient.name;
+            })
+
+            recipeExtra.textContent = "Ingredients: " + ingrList.join(",");
             recipeExtra.setAttribute('class', 'font-p');
+
         }
 
         const recipeId = document.createElement("p");

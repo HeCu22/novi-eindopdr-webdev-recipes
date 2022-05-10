@@ -22,7 +22,7 @@ async function fetchRecipeByIngredients(inputIngredients, inputNumber) {
                 ingredients: inputIngredients,
                 number: inputNumber,
                 ranking: 1,                                     /*---- maximize to be used ingredients -----*/
-                ignorePantry: true
+                ignorePantry: false                             /* also ingredients like milk, water, flour */
 
             },
             headers: {
