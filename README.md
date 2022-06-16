@@ -41,7 +41,6 @@ Door te klikken op één van icoontjes, komt men op een vervolgmenu waar men de 
 Bij deze applicatie maak ik gebruik van HTTP requests naar de Spoonacular API (https://spoonacular.com/food-api/docs) om zo de juiste data op te vragen en te verwerken in mijn applicatie. De documentatie over de verschillende endpoints kun je hier vinden.
 In deze api is vooral gebuik gemaakt van Search Recipes’ (complex search), ‘Search Recipes by ingredients’ en ‘Search Recipes bij Id’.
 
-De API key die gebruikt kan worden is: "dbfe72f1a5bd47d9bea64ca490667395"
 
 NPM en Parcel zijn al geconfigureerd, de bijbehorende dependencies moet men wel nog  installeren. 
 Omdat er al een package.json aanwezig is in het bestand, kun je dit doen met het volgende (globale) commando:
